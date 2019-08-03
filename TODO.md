@@ -1,0 +1,18 @@
+- disable react runtime validation
+- https://docs.siimple.xyz/form/input.html
+- create Input component?
+- fix eslint warnings
+- generate vaults and missions
+- load state from db
+- periodic save of state on db
+- authentication
+- client side increase prediction for resources
+- eslint accesibility
+- hide debug schema on production
+- validate vault coordinate doesn't exists before creating a new vault
+- remove apollo boost and make custom client
+- improve username and password validation error
+- colorize apollo server error and improve readability
+- client side input validation
+- responsive UI
+- create database for e2e testing, create .env.testing to use in yarn test

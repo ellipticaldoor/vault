@@ -1,0 +1,26 @@
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_URL")
+}
+
+generator photonjs {
+  provider = "photonjs"
+  output = "../src/server/photon"
+}
+
+model User {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  username String @unique
+  password String
+}
+
+model Vault {
+  id String @id @default(uuid())
+  createdAtTick Int
+  x Int
+  y Int
+  userId String?
+  resourceId String
+  facilityId String
+}

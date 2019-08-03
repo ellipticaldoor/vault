@@ -1,0 +1,14 @@
+overwrite: true
+schema: "http://localhost:8080/graphql"
+documents: "src/api/**/queries.ts"
+generates:
+  src/api/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+      - "typescript-operations"
+    config:
+      avoidOptionals: true
+      showUnusedMappers: true
+      noSchemaStitching: true
+      contextType: ../server/apollo#ApolloContext

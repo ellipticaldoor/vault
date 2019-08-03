@@ -1,0 +1,106 @@
+{
+  "name": "vault",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "dotenv -e .env.development -- react-scripts test --runInBand",
+    "client": "BROWSER=none react-scripts start",
+    "client:build": "react-scripts build",
+    "server": "NODE_PATH=src dotenv -e .env.development -- babel-watch src/server/index.ts --extensions \".ts\"",
+    "type-check": "tsc --noEmit --noUnusedLocals",
+    "type-check:watch": "yarn type-check --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "prettier": "prettier --write './**/*.{js,ts,tsx,json,css,scss,md,graphql}'",
+    "docker:up": "docker-compose up -d --remove-orphans",
+    "docker:build": "yarn docker:up --build",
+    "docker:logs": "docker-compose logs -f",
+    "apollo:generate": "graphql-codegen --config codegen.yml && node tools/transformCodegenSchema.js",
+    "prisma:generate:development": "dotenv -e .env.development -- prisma2 generate",
+    "prisma:lift:development": "dotenv -e .env.development -- prisma2 lift save --name '' && dotenv -e .env.development -- prisma2 lift up"
+  },
+  "dependencies": {
+    "@apollo/react-hooks": "^0.1.0-beta.11",
+    "apollo-boost": "^0.4.3",
+    "apollo-server-express": "^2.8.1",
+    "bcrypt": "^3.0.6",
+    "constate": "^1.2.0",
+    "graphql": "^14.4.2",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "normalize.css": "^8.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "remeda": "^0.0.11",
+    "styled-components": "^4.3.2",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "@graphql-codegen/cli": "^1.4.0",
+    "@graphql-codegen/typescript": "1.4.0",
+    "@graphql-codegen/typescript-operations": "^1.4.0",
+    "@graphql-codegen/typescript-resolvers": "^1.4.0",
+    "@types/bcrypt": "^3.0.0",
+    "@types/graphql": "^14.2.3",
+    "@types/jest": "24.0.16",
+    "@types/jest-in-case": "^1.0.1",
+    "@types/joi": "^14.3.3",
+    "@types/jsonwebtoken": "^8.3.2",
+    "@types/node": "^12.6.9",
+    "@types/react": "16.8.24",
+    "@types/react-dom": "16.8.5",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/styled-components": "^4.1.18",
+    "@types/uuid": "^3.4.5",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "babel-watch": "^7.0.0",
+    "dotenv-cli": "^2.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-react-app": "^4.0.1",
+    "glob": "^7.1.4",
+    "graphql-tag": "^2.10.1",
+    "husky": "^3.0.2",
+    "jest-in-case": "^1.0.2",
+    "lint-staged": "^9.2.1",
+    "merge-graphql-schemas": "^1.7.0",
+    "prettier": "^1.18.2",
+    "prisma2": "^2.0.0-preview-5",
+    "ts-essentials": "^3.0.0",
+    "typescript": "^3.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --ext .js,.jsx,.ts,.tsx",
+      "git add"
+    ],
+    "*.{json,css,scss,md,graphql}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
