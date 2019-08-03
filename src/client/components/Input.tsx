@@ -15,8 +15,6 @@ export const Input: React.FC<InputProps> = ({
 
 const StyledInput = styled.input`
   padding: ${sizes.xs};
-  height: ${sizes.xxl};
-  line-height: ${sizes.xxl};
   width: ${({ width }) => width};
   background: ${colors.background};
   border: ${border.width};

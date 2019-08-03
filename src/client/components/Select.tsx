@@ -51,7 +51,6 @@ const StyledSelect = styled.select<{ width: string }>`
   vertical-align: middle;
   padding: 0px ${sizes.xs};
   height: ${sizes.xxl};
-  line-height: ${sizes.xxl};
   border: ${border.width};
   border-radius: ${border.radius};
   font-size: ${sizes.md};
