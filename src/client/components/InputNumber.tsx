@@ -10,6 +10,7 @@ export type InputNumberProps = {
   min?: number;
   max?: number;
   margin?: Size;
+  padding?: Size;
   inputWidth?: string;
 };
 
@@ -17,11 +18,12 @@ export const InputNumber: React.FC<InputNumberProps> = ({
   label,
   onChange,
   margin,
+  padding,
   inputWidth,
   ...props
 }) => {
   return (
-    <InputContainer margin={margin}>
+    <InputContainer margin={margin} padding={padding}>
       <TextLabel>{label}</TextLabel>
       <Input
         {...props}

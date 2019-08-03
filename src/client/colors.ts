@@ -55,4 +55,6 @@ export const colors = {
   font: palette.blackRock,
   link: palette.bondiBlue,
   linkVisited: palette.purpleHeart,
+  base: palette.linkWater,
+  lightBase: palette.mintTulip,
 };

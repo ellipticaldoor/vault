@@ -22,6 +22,7 @@ export const InputCoordinate: React.FC<CoordinateInputProps> = (props) => {
         value={props.x}
         onChange={props.setX}
         margin="none"
+        padding="none"
         inputWidth={INPUT_WIDTH}
       />
       <InputNumber
@@ -29,6 +30,7 @@ export const InputCoordinate: React.FC<CoordinateInputProps> = (props) => {
         value={props.y}
         onChange={props.setY}
         margin={{ left: 'md' }}
+        padding="none"
         inputWidth={INPUT_WIDTH}
       />
     </InputContainer>
