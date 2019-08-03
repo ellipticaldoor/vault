@@ -3,8 +3,10 @@
 ## Setup
 
 ```shell
-yarn docker:up
 yarn install
+yarn docker:up
+yarn prisma:generate:development
+yarn prisma:lift:development
 ```
 
 # Basic usage
