@@ -43,7 +43,7 @@ export const NewMission: React.FC = () => {
         setY={setToY}
       />
 
-      <InputGroup label="With initial resources amount">
+      <InputGroup label="With initial resources of">
         <InputNumber
           label="dwellers"
           value={dwellers}
