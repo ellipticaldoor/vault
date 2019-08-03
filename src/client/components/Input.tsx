@@ -1,21 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import { sizes, colors, border } from 'client/styles';
+import { sizes, colors, border, outline } from 'client/styles';
 
 export type InputProps = React.ComponentProps<typeof StyledInput>;
 
-export const DEFAULT_INPUT_WIDTH = '200px';
-
-export const Input: React.FC<InputProps> = ({
-  width = DEFAULT_INPUT_WIDTH,
-  ...props
-}) => {
-  return <StyledInput {...props} width={width} />;
+export const Input: React.FC<InputProps> = (props) => {
+  return <StyledInput {...props} />;
 };
 
+export const DEFAULT_INPUT_WIDTH = '200px';
+
 const StyledInput = styled.input`
+  width: ${({ width }) => width || DEFAULT_INPUT_WIDTH};
+
   padding: ${sizes.xs};
-  width: ${({ width }) => width};
+  padding-right: 0px;
   background: ${colors.background};
   border: ${border.width};
+  border-radius: ${border.radius};
+  ${outline};
 `;

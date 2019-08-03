@@ -29,7 +29,7 @@ export const Signup: React.FC = () => {
         password
       />
       <Button
-        title="submit"
+        title="Create new account"
         onClick={() => {
           signup();
         }}

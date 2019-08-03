@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { colors } from './colors';
+import { lighten } from './helpers';
 
 export const sizes = {
   xss: '0.2rem',
@@ -29,15 +30,8 @@ export const getSize = (size?: Size): string => {
 
   if (typeof size === 'object') {
     const { top, right, bottom, left } = size;
-    return (
-      getSize(top) +
-      ' ' +
-      getSize(right) +
-      ' ' +
-      getSize(bottom) +
-      ' ' +
-      getSize(left)
-    );
+    // prettier-ignore
+    return getSize(top) + ' ' + getSize(right) + ' ' + getSize(bottom) + ' ' + getSize(left);
   }
 
   return sizes[size];
@@ -47,6 +41,12 @@ export const border = {
   radius: '4px',
   width: '0px',
 };
+
+export const outline = `
+outline: none;
+&:focus {
+  box-shadow: 0 0 0 0.16rem ${lighten(colors.primary, 1.2)}
+}`;
 
 export const fonts = {
   base: "-apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto",

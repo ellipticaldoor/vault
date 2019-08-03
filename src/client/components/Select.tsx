@@ -4,7 +4,7 @@ import {
   InputContainer,
   DEFAULT_INPUT_WIDTH,
 } from 'client/components';
-import { SizeType, sizes, border, colors } from 'client/styles';
+import { SizeType, sizes, border, colors, outline } from 'client/styles';
 import styled from 'styled-components';
 
 export type SelectProps = {
@@ -49,13 +49,14 @@ const selectBackground = `${colors.background} url("${SELECT_ICON_SVG}") no-repe
 const StyledSelect = styled.select<{ width: string }>`
   appearance: none;
   vertical-align: middle;
-  padding: 0px ${sizes.xs};
+  padding: 0px ${sizes.sm};
   height: ${sizes.xxl};
   border: ${border.width};
   border-radius: ${border.radius};
   font-size: ${sizes.md};
   width: ${({ width }) => width};
   background: ${selectBackground};
+  ${outline};
 
   &::-ms-expand {
     display: none;

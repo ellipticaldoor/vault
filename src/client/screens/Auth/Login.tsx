@@ -12,10 +12,10 @@ export const Login: React.FC = () => {
 
   return (
     <ScreenContainer>
-      <TextTitle>Login</TextTitle>
+      <TextTitle>{'Welcome back :)'}</TextTitle>
       <TextInput label="username" value={username} onChange={setUsername} />
       <TextInput label="password" value={password} onChange={setPassword} />
-      <Button title="submit" onClick={() => {}} />
+      <Button title="Login" onClick={() => {}} />
     </ScreenContainer>
   );
 };

@@ -23,11 +23,12 @@ export const Nav: React.FC<NavProps> = ({ routes }) => {
 export const NAV_WIDTH = '200px';
 
 const List = styled.div`
-  display: flex;
-  flex-direction: column;
   padding: ${sizes.md};
   min-width: ${NAV_WIDTH};
   max-width: ${NAV_WIDTH};
+
+  display: flex;
+  flex-direction: column;
 `;
 
 const StyledLink = styled(Link)`

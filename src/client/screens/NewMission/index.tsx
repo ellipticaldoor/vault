@@ -13,7 +13,7 @@ import useGameStateContext from 'client/state';
 
 const missionKindOptions = Object.keys(MissionKind);
 
-export const CreateMission: React.FC = () => {
+export const NewMission: React.FC = () => {
   const {
     state: { myVault },
   } = useGameStateContext();
@@ -26,24 +26,24 @@ export const CreateMission: React.FC = () => {
 
   return (
     <ScreenContainer>
-      <TextTitle>Create a mission</TextTitle>
+      <TextTitle>New Mission</TextTitle>
 
       <Select
         value={kind}
         options={missionKindOptions}
-        label="Mission kind"
+        label="Of kind"
         onChange={setKind}
       />
 
       <InputCoordinate
-        label="To coordinate"
+        label="To vault at"
         x={toX}
         setX={setToX}
         y={toY}
         setY={setToY}
       />
 
-      <InputGroup label="Initial mission resources">
+      <InputGroup label="With initial resources amount">
         <InputNumber
           label="dwellers"
           value={dwellers}
@@ -60,7 +60,7 @@ export const CreateMission: React.FC = () => {
         />
       </InputGroup>
 
-      <Button title="Submit" onClick={() => {}} />
+      <Button title="Start new mission" onClick={() => {}} />
     </ScreenContainer>
   );
 };
