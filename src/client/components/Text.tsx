@@ -11,10 +11,10 @@ export type TextProps = {
 };
 
 export const Text: React.FC<TextProps> = (props) => {
-  return <TextContainer {...props} />;
+  return <StyledText {...props} />;
 };
 
-const TextContainer = styled.div<{
+const StyledText = styled.div<{
   margin?: Size;
   padding?: Size;
   bold?: boolean;

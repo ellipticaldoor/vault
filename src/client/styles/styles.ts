@@ -43,6 +43,11 @@ export const getSize = (size?: Size): string => {
   return sizes[size];
 };
 
+export const border = {
+  radius: '4px',
+  width: '0px',
+};
+
 export const fonts = {
   base: "-apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto",
   mono: "'SF Mono', 'Segoe UI Mono', 'Roboto Mono', Menlo, Courier, monospace",

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { sizes } from 'client/styles';
-import { colors } from 'client/colors';
+import { sizes, colors, border } from 'client/styles';
 
 export type InputProps = React.ComponentProps<typeof StyledInput>;
 
@@ -19,6 +18,6 @@ const StyledInput = styled.input`
   height: ${sizes.xxl};
   line-height: ${sizes.xxl};
   width: ${({ width }) => width};
-  border: 0;
   background: ${colors.background};
+  border: ${border.width};
 `;

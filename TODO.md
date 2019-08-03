@@ -1,3 +1,4 @@
+- create link component instead of global one
 - disable react runtime validation
 - https://docs.siimple.xyz/form/input.html
 - create Input component?

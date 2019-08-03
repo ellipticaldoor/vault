@@ -1,8 +1,7 @@
 import React from 'react';
 import { TextLabel } from 'client/components';
 import styled from 'styled-components';
-import { sizes } from 'client/styles';
-import { colors } from 'client/colors';
+import { sizes, colors } from 'client/styles';
 
 export type InputGroupProps = {
   label: string;
@@ -11,14 +10,14 @@ export type InputGroupProps = {
 
 export const InputGroup: React.FC<InputGroupProps> = ({ label, children }) => {
   return (
-    <InputGroupContainer>
+    <StyledInputGroup>
       <TextLabel margin={{ bottom: 'md' }}>{label}</TextLabel>
       {children}
-    </InputGroupContainer>
+    </StyledInputGroup>
   );
 };
 
-const InputGroupContainer = styled.div`
+const StyledInputGroup = styled.div`
   background: ${colors.lightBase};
   padding: ${sizes.sm} 0px 0px ${sizes.sm};
 `;
