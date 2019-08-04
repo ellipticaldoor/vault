@@ -1,4 +1,5 @@
 - create link component instead of global one
+- use alias instead of baseurl
 - generate vaults and missions
 - sync state with db
 - periodic save of state on db
