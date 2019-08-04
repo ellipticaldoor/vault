@@ -1,7 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+} from 'react';
 import { colors } from 'client/styles';
 import styled from 'styled-components';
-import { scaleAtlas } from 'client/screens/Atlas/helpers';
+import { scaleAtlas, getAtlasSize } from 'client/screens/Atlas/helpers';
 import { Point, drawAtlas } from 'client/screens/Atlas/draw';
 
 const initialPoints = [
@@ -17,17 +23,19 @@ const initialPoints = [
 export const Atlas: React.FC = () => {
   const [points] = useState<Point[]>(initialPoints);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const atlasSize = useMemo(() => getAtlasSize(), []);
+  const [ctx, setCtx] = useState<CanvasRenderingContext2D | null>(null);
 
   useEffect(() => {
-    if (canvasRef.current === null) return;
-
-    const ctx = canvasRef.current.getContext('2d');
-    if (ctx === null) return;
-
-    scaleAtlas(canvasRef.current);
-
-    drawAtlas(ctx);
+    if (!canvasRef.current) return;
+    setCtx(canvasRef.current.getContext('2d'));
   }, []);
+
+  useEffect(() => {
+    if (!canvasRef.current || !ctx) return;
+    scaleAtlas(canvasRef.current, ctx, atlasSize);
+    drawAtlas(ctx, points);
+  }, [ctx, atlasSize, points]);
 
   return <Canvas ref={canvasRef} />;
 };

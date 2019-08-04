@@ -1,6 +1,43 @@
-export type Point = { x: number; y: number };
+import { prop, sort, first, last } from 'remeda';
+import { AtlasSize } from 'client/screens/Atlas/helpers';
 
-export const drawAtlas = (ctx: CanvasRenderingContext2D) => {
+export type Coordinate = { x: number; y: number };
+type Position = { x: number; y: number };
+
+const minMaxDistance = (points: number[]) => {
+  if (points.length === 0) {
+    return 0;
+  }
+  const sortedPoints = sort(points, (a, b) => a - b);
+  const fisrtPoint = first(sortedPoints);
+  const lastPoint = last(sortedPoints);
+
+  return lastPoint - fisrtPoint;
+};
+
+export const getAtlasRuleMeasure = (coordinates: Coordinate[]) => {
+  return {
+    ruleX: minMaxDistance(coordinates.map(prop('x'))),
+    ruleY: minMaxDistance(coordinates.map(prop('y'))),
+  };
+};
+
+const getCoordinatePosition = (
+  atlasSize: AtlasSize,
+  coordinate: Coordinate,
+): Position => {
+  // TODO
+};
+
+const drawVault = (ctx: CanvasRenderingContext2D, position: Position) => {
+  // TODO
+};
+
+export const drawAtlas = (
+  ctx: CanvasRenderingContext2D,
+  atlasSize: AtlasSize,
+  points: Coordinate[],
+) => {
   ctx.fillStyle = 'rgb(200, 0, 0)';
   ctx.fillRect(10, 10, 50, 50);
 
