@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

@@ -9,6 +9,7 @@ paths.appTypeDeclarations = path.resolve(
   __dirname,
   `src/client/react-app-env.d.ts`,
 );
+paths.appTsConfig = path.resolve(__dirname, `tsconfig.cra.json`);
 
 module.exports = function override(config) {
   // Disable eslint checking
