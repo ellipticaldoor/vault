@@ -36,7 +36,7 @@ export const getAtlasRuleMeasure = (coordinates: Coordinate[]) => {
 export const drawAtlas = (
   ctx: CanvasRenderingContext2D,
   atlasSize: AtlasSize,
-  points: Coordinate[],
+  coordinates: Coordinate[],
 ) => {
   ctx.fillStyle = 'rgb(200, 0, 0)';
   ctx.fillRect(10, 10, 50, 50);
