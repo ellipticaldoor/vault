@@ -15,3 +15,4 @@
 - create database for e2e testing, create .env.testing to use in yarn test
 - Add a rank system based in points
 - disable cra typescript checking
+- retina canvas

@@ -20,12 +20,12 @@ export const Nav: React.FC<NavProps> = ({ routes }) => {
   );
 };
 
-export const NAV_WIDTH = '200px';
+export const NAV_WIDTH = 200;
 
 const List = styled.div`
   padding: ${sizes.md};
-  min-width: ${NAV_WIDTH};
-  max-width: ${NAV_WIDTH};
+  min-width: ${NAV_WIDTH}px;
+  max-width: ${NAV_WIDTH}px;
 
   display: flex;
   flex-direction: column;

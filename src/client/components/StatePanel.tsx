@@ -25,12 +25,12 @@ export const StatePanel: React.FC = () => {
   );
 };
 
-export const STATE_PANEL_WIDTH = '200px';
+export const STATE_PANEL_WIDTH = 200;
 
 const StatePanelContainer = styled.div`
   padding: ${sizes.md};
-  min-width: ${STATE_PANEL_WIDTH};
-  max-width: ${STATE_PANEL_WIDTH};
+  min-width: ${STATE_PANEL_WIDTH}px;
+  max-width: ${STATE_PANEL_WIDTH}px;
 
   display: flex;
   flex-direction: column;

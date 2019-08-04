@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ScreenContainer } from 'client/components';
+import { NAV_WIDTH, STATE_PANEL_WIDTH } from 'client/components';
 import { colors } from 'client/styles';
+import styled from 'styled-components';
 
 const initialPoints = [
   { x: 0, y: 0 },
@@ -21,25 +22,28 @@ export const Atlas: React.FC = () => {
   useEffect(() => {
     if (canvasRef.current === null) return;
 
-    const ctx = canvasRef.current.getContext('2d');
+    const context = canvasRef.current.getContext('2d');
 
-    if (ctx === null) return;
+    if (context === null) return;
 
-    ctx.fillStyle = 'rgb(200, 0, 0)';
-    ctx.fillRect(10, 10, 50, 50);
+    const ratio = 1;
+    const canvasWidth = window.innerWidth * ratio;
+    context.canvas.width = canvasWidth - NAV_WIDTH - STATE_PANEL_WIDTH;
+    context.canvas.height = window.innerHeight * ratio;
+    context.scale(ratio, ratio);
 
-    ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
-    ctx.fillRect(30, 30, 50, 50);
+    context.fillStyle = 'rgb(200, 0, 0)';
+    context.fillRect(10, 10, 50, 50);
+
+    context.fillStyle = 'rgba(0, 0, 200, 0.5)';
+    context.fillRect(30, 30, 50, 50);
   }, []);
 
-  return (
-    <ScreenContainer>
-      <canvas
-        ref={canvasRef}
-        width="800px"
-        height="500px"
-        style={{ background: colors.base }}
-      />
-    </ScreenContainer>
-  );
+  return <Canvas ref={canvasRef} />;
 };
+
+const Canvas = styled.canvas`
+  background: ${colors.base};
+  width: 100%;
+  height: 100vh;
+`;
