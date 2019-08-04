@@ -11,7 +11,7 @@ paths.appTypeDeclarations = path.resolve(
 );
 
 module.exports = function override(config) {
-  // Disable eslint cheking
+  // Disable eslint checking
   config.module.rules.splice(1, 1);
 
   return config;
