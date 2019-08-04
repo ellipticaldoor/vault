@@ -1,8 +1,7 @@
+- disable cra typescript checking
 - create link component instead of global one
-- disable react runtime validation
 - https://docs.siimple.xyz/form/input.html
 - create Input component?
-- fix eslint warnings
 - generate vaults and missions
 - load state from db
 - periodic save of state on db
@@ -18,3 +17,4 @@
 - responsive UI
 - create database for e2e testing, create .env.testing to use in yarn test
 - Add a rank system based in points
+- https://blog.prototypr.io/this-aint-disney-a-practical-guide-to-css-transitions-and-animations-a8b87e7c5531
