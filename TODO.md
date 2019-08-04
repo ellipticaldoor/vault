@@ -1,13 +1,9 @@
-- disable cra typescript checking
 - create link component instead of global one
-- https://docs.siimple.xyz/form/input.html
-- create Input component?
 - generate vaults and missions
-- load state from db
+- sync state with db
 - periodic save of state on db
-- authentication
-- client side increase prediction for resources
-- eslint accesibility
+- client side prediction
+- eslint accesibility a11y
 - hide debug schema on production
 - validate vault coordinate doesn't exists before creating a new vault
 - remove apollo boost and make custom client
@@ -17,4 +13,4 @@
 - responsive UI
 - create database for e2e testing, create .env.testing to use in yarn test
 - Add a rank system based in points
-- https://blog.prototypr.io/this-aint-disney-a-practical-guide-to-css-transitions-and-animations-a8b87e7c5531
+- disable cra typescript checking
