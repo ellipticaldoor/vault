@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import * as Pts from 'pts';
+import React, { useState, useEffect, useRef } from 'react';
 import { ScreenContainer } from 'client/components';
 import { colors } from 'client/styles';
 
@@ -18,54 +17,32 @@ type Point = { x: number; y: number };
 const canvasAtlasId = 'atlas';
 
 export const Atlas: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [space, setSpace] = useState<Pts.CanvasSpace>();
-  const [form, setForm] = useState<Pts.CanvasForm>();
-
   const [points] = useState<Point[]>(initialPoints);
-
-  const animate = useCallback((): Pts.AnimateCallbackFn => {
-    return () => {
-      if (!space || !form) return;
-
-      const subs = space.innerBound.map((p) =>
-        Pts.Line.subpoints([p, space.pointer], 30),
-      );
-      const rects = Pts.Util.zip(subs).map((r, i) =>
-        Pts.Rectangle.corners(r).rotate2D((i * Math.PI) / 60, space.pointer),
-      );
-      form.strokeOnly('#FDC', 2).polygons(rects);
-    };
-  }, [space, form]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     if (canvasRef.current === null) return;
 
-    const newSpace = new Pts.CanvasSpace(canvasRef.current);
-    newSpace.setup({ bgcolor: colors.base, resize: false, retina: false });
+    const ctx = canvasRef.current.getContext('2d');
 
-    newSpace
-      .bindMouse()
-      .bindTouch()
-      .play();
+    if (ctx === null) return;
 
-    setSpace(newSpace);
-    setForm(newSpace.getForm());
+    ctx.fillStyle = 'rgb(200, 0, 0)';
+    ctx.fillRect(10, 10, 50, 50);
+
+    ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
+    ctx.fillRect(30, 30, 50, 50);
   }, []);
-
-  useEffect(() => {
-    if (!space) return;
-    space.add({ animate: animate() });
-  }, [animate, space]);
 
   return (
     <ScreenContainer>
-      <canvas ref={canvasRef} id={canvasAtlasId} width="800px" height="500px" />
+      <canvas
+        ref={canvasRef}
+        id={canvasAtlasId}
+        width="800px"
+        height="500px"
+        style={{ background: colors.base }}
+      />
     </ScreenContainer>
   );
 };
-
-// References:
-//  https://github.com/williamngan/react-pts-canvas/blob/master/src/index.js
-//  https://github.com/williamngan/pts/blob/master/src/_lib.ts#L32
-//  https://github.com/williamngan/pts/blob/master/demo/pts.quickStart.js
