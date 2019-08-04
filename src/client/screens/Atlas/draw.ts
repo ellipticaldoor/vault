@@ -2,7 +2,7 @@ import { prop, sort, first, last } from 'remeda';
 import { AtlasSize } from 'client/screens/Atlas/helpers';
 
 export type Coordinate = { x: number; y: number };
-type Position = { x: number; y: number };
+export type Position = { x: number; y: number };
 
 const minMaxDistance = (points: number[]) => {
   if (points.length === 0) {
@@ -22,16 +22,16 @@ export const getAtlasRuleMeasure = (coordinates: Coordinate[]) => {
   };
 };
 
-const getCoordinatePosition = (
-  atlasSize: AtlasSize,
-  coordinate: Coordinate,
-): Position => {
-  // TODO
-};
+// const getCoordinatePosition = (
+//   atlasSize: AtlasSize,
+//   coordinate: Coordinate,
+// ): Position => {};
 
-const drawVault = (ctx: CanvasRenderingContext2D, position: Position) => {
-  // TODO
-};
+// const drawVault = (ctx: CanvasRenderingContext2D, position: Position) => {};
+
+// const drawRules = (ctx: CanvasRenderingContext2D, atlasSize: AtlasSize) => {};
+
+// TODO: click or hover on vault and display modal
 
 export const drawAtlas = (
   ctx: CanvasRenderingContext2D,
