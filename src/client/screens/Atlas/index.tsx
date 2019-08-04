@@ -14,8 +14,6 @@ const initialPoints = [
 
 type Point = { x: number; y: number };
 
-const canvasAtlasId = 'atlas';
-
 export const Atlas: React.FC = () => {
   const [points] = useState<Point[]>(initialPoints);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -38,7 +36,6 @@ export const Atlas: React.FC = () => {
     <ScreenContainer>
       <canvas
         ref={canvasRef}
-        id={canvasAtlasId}
         width="800px"
         height="500px"
         style={{ background: colors.base }}
