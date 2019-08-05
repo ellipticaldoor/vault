@@ -38,11 +38,14 @@ const drawContourLines = (
 ) => {
   ctx.strokeStyle = colors.primary;
 
+  const width = atlasSize.width;
+  const height = atlasSize.height;
+
   const horizontalLineAmount = Math.floor(
-    atlasSize.height / CONTOUR_INTERSECTION_DISTANCE,
+    width / CONTOUR_INTERSECTION_DISTANCE,
   );
   const remainginHorizontalSpace =
-    atlasSize.height - CONTOUR_INTERSECTION_DISTANCE * horizontalLineAmount;
+    height - CONTOUR_INTERSECTION_DISTANCE * horizontalLineAmount;
   const horizontalAlignCenter =
     CONTOUR_INTERSECTION_DISTANCE / 2 - remainginHorizontalSpace / 2;
 
@@ -50,22 +53,20 @@ const drawContourLines = (
     const distance = CONTOUR_INTERSECTION_DISTANCE * i - horizontalAlignCenter;
 
     ctx.moveTo(0, distance);
-    ctx.lineTo(atlasSize.width, distance);
+    ctx.lineTo(width, distance);
     ctx.stroke();
   }
 
-  const verticalLineAmount = Math.floor(
-    atlasSize.width / CONTOUR_INTERSECTION_DISTANCE,
-  );
+  const verticalLineAmount = Math.floor(width / CONTOUR_INTERSECTION_DISTANCE);
   const remainginVerticalSpace =
-    atlasSize.width - CONTOUR_INTERSECTION_DISTANCE * verticalLineAmount;
+    width - CONTOUR_INTERSECTION_DISTANCE * verticalLineAmount;
   const verticalAlignCenter =
     CONTOUR_INTERSECTION_DISTANCE / 2 - remainginVerticalSpace / 2;
 
   for (let i = 0; i < verticalLineAmount + 2; i++) {
     const distance = CONTOUR_INTERSECTION_DISTANCE * i - verticalAlignCenter;
     ctx.moveTo(distance, 0);
-    ctx.lineTo(distance, atlasSize.height);
+    ctx.lineTo(distance, height);
     ctx.stroke();
   }
 };
