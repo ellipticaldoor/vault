@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { colors } from 'client/styles';
 import styled from 'styled-components';
 import { scaleAtlas, getAtlasSize } from 'client/screens/Atlas/helpers';
 import { Coordinate, drawAtlas } from 'client/screens/Atlas/draw';
@@ -35,7 +34,6 @@ export const Atlas: React.FC = () => {
 };
 
 const Canvas = styled.canvas`
-  background: ${colors.base};
   width: 100%;
   height: 100vh;
 `;

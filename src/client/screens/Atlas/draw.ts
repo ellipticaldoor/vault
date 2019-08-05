@@ -1,5 +1,6 @@
 import { prop, sort, first, last } from 'remeda';
 import { AtlasSize } from 'client/screens/Atlas/helpers';
+import { colors } from 'client/styles';
 
 export type Coordinate = { x: number; y: number };
 export type Position = { x: number; y: number };
@@ -29,7 +30,45 @@ export const getAtlasRuleMeasure = (coordinates: Coordinate[]) => {
 
 // const drawVault = (ctx: CanvasRenderingContext2D, position: Position) => {};
 
-// const drawRules = (ctx: CanvasRenderingContext2D, atlasSize: AtlasSize) => {};
+const CONTOUR_INTERSECTION_DISTANCE = 100;
+
+const drawContourLines = (
+  ctx: CanvasRenderingContext2D,
+  atlasSize: AtlasSize,
+) => {
+  ctx.strokeStyle = colors.primary;
+
+  const horizontalLineAmount = Math.floor(
+    atlasSize.height / CONTOUR_INTERSECTION_DISTANCE,
+  );
+  const remainginHorizontalSpace =
+    atlasSize.height - CONTOUR_INTERSECTION_DISTANCE * horizontalLineAmount;
+  const horizontalAlignCenter =
+    CONTOUR_INTERSECTION_DISTANCE / 2 - remainginHorizontalSpace / 2;
+
+  for (let i = 0; i < horizontalLineAmount + 2; i++) {
+    const distance = CONTOUR_INTERSECTION_DISTANCE * i - horizontalAlignCenter;
+
+    ctx.moveTo(0, distance);
+    ctx.lineTo(atlasSize.width, distance);
+    ctx.stroke();
+  }
+
+  const verticalLineAmount = Math.floor(
+    atlasSize.width / CONTOUR_INTERSECTION_DISTANCE,
+  );
+  const remainginVerticalSpace =
+    atlasSize.width - CONTOUR_INTERSECTION_DISTANCE * verticalLineAmount;
+  const verticalAlignCenter =
+    CONTOUR_INTERSECTION_DISTANCE / 2 - remainginVerticalSpace / 2;
+
+  for (let i = 0; i < verticalLineAmount + 2; i++) {
+    const distance = CONTOUR_INTERSECTION_DISTANCE * i - verticalAlignCenter;
+    ctx.moveTo(distance, 0);
+    ctx.lineTo(distance, atlasSize.height);
+    ctx.stroke();
+  }
+};
 
 // TODO: click or hover on vault and display modal
 
@@ -38,9 +77,5 @@ export const drawAtlas = (
   atlasSize: AtlasSize,
   coordinates: Coordinate[],
 ) => {
-  ctx.fillStyle = 'rgb(200, 0, 0)';
-  ctx.fillRect(10, 10, 50, 50);
-
-  ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
-  ctx.fillRect(30, 30, 50, 50);
+  drawContourLines(ctx, atlasSize);
 };
