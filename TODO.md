@@ -16,3 +16,4 @@
 - Add a rank system based in points
 - disable cra typescript checking
 - retina canvas
+- dark theme
