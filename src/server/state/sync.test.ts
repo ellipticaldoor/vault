@@ -1,13 +1,13 @@
-import { dbTestSetup } from 'server/debug';
+// import { dbTestSetup } from 'server/debug';
 import {
   createGameState,
-  syncDbWithGameState,
+  // syncDbWithGameState,
   // DEFAULT_GAME_STATE_ID,
 } from 'server/state';
 import { createVault } from 'server/vaults';
 import { createMission, MissionKind } from 'server/missions';
 
-const setup = dbTestSetup();
+// const setup = dbTestSetup();
 
 test('syncDbWithGameState, syncGameStateWithDb', async () => {
   const gameState = createGameState();
