@@ -4,6 +4,7 @@ documents: "src/api/**/queries.ts"
 generates:
   src/api/graphql.ts:
     plugins:
+      - add: "import { DeepPartial } from 'ts-essentials';"
       - "typescript"
       - "typescript-resolvers"
       - "typescript-operations"
@@ -12,3 +13,4 @@ generates:
       showUnusedMappers: true
       noSchemaStitching: true
       contextType: ../server/apollo#ApolloContext
+      resolverTypeWrapperSignature: Promise<DeepPartial<T>> | DeepPartial<T>

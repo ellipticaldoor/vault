@@ -253,7 +253,7 @@ export type ResolversParentTypes = {
 
 export type AuthPayloadResolvers<
   ContextType = ApolloContext,
-  ParentType = ResolversParentTypes['AuthPayload']
+  ParentType extends ResolversParentTypes['AuthPayload'] = ResolversParentTypes['AuthPayload']
 > = {
   user: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   token: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -261,7 +261,7 @@ export type AuthPayloadResolvers<
 
 export type FacilityResolvers<
   ContextType = ApolloContext,
-  ParentType = ResolversParentTypes['Facility']
+  ParentType extends ResolversParentTypes['Facility'] = ResolversParentTypes['Facility']
 > = {
   id: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   ironMine: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
@@ -269,7 +269,7 @@ export type FacilityResolvers<
 
 export type GameStateResolvers<
   ContextType = ApolloContext,
-  ParentType = ResolversParentTypes['GameState']
+  ParentType extends ResolversParentTypes['GameState'] = ResolversParentTypes['GameState']
 > = {
   id: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   ticks: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
@@ -289,7 +289,7 @@ export type GameStateResolvers<
 
 export type MissionResolvers<
   ContextType = ApolloContext,
-  ParentType = ResolversParentTypes['Mission']
+  ParentType extends ResolversParentTypes['Mission'] = ResolversParentTypes['Mission']
 > = {
   id: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   kind: Resolver<ResolversTypes['MissionKind'], ParentType, ContextType>;
@@ -303,7 +303,7 @@ export type MissionResolvers<
 
 export type MutationResolvers<
   ContextType = ApolloContext,
-  ParentType = ResolversParentTypes['Mutation']
+  ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']
 > = {
   login: Resolver<
     ResolversTypes['AuthPayload'],
@@ -338,7 +338,7 @@ export type MutationResolvers<
 
 export type QueryResolvers<
   ContextType = ApolloContext,
-  ParentType = ResolversParentTypes['Query']
+  ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']
 > = {
   gameState: Resolver<ResolversTypes['GameState'], ParentType, ContextType>;
   missions: Resolver<Array<ResolversTypes['Mission']>, ParentType, ContextType>;
@@ -348,7 +348,7 @@ export type QueryResolvers<
 
 export type ResourceResolvers<
   ContextType = ApolloContext,
-  ParentType = ResolversParentTypes['Resource']
+  ParentType extends ResolversParentTypes['Resource'] = ResolversParentTypes['Resource']
 > = {
   id: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   dwellers: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
@@ -357,7 +357,7 @@ export type ResourceResolvers<
 
 export type UserResolvers<
   ContextType = ApolloContext,
-  ParentType = ResolversParentTypes['User']
+  ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']
 > = {
   id: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   username: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -366,7 +366,7 @@ export type UserResolvers<
 
 export type VaultResolvers<
   ContextType = ApolloContext,
-  ParentType = ResolversParentTypes['Vault']
+  ParentType extends ResolversParentTypes['Vault'] = ResolversParentTypes['Vault']
 > = {
   id: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   x: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
