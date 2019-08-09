@@ -1,7 +1,7 @@
 import { dbTestSetup } from 'server/debug';
 import {
   createGameState,
-  // syncDbWithGameState,
+  syncDbWithGameState,
   // DEFAULT_GAME_STATE_ID,
 } from 'server/state';
 import { createVault } from 'server/vaults';
@@ -11,7 +11,6 @@ const setup = dbTestSetup();
 
 test('syncDbWithGameState, syncGameStateWithDb', async () => {
   const gameState = createGameState();
-  console.log(setup.photon);
 
   gameState.setTicks(100);
 
