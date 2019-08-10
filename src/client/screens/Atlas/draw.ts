@@ -30,53 +30,84 @@ export const getAtlasRuleMeasure = (coordinates: Coordinate[]) => {
 
 // const drawVault = (ctx: CanvasRenderingContext2D, position: Position) => {};
 
-const CONTOUR_INTERSECTION_DISTANCE = 100;
+type CanvasContext = CanvasRenderingContext2D;
+
+const drawLine = (
+  ctx: CanvasContext,
+  fromX: number,
+  fromY: number,
+  toX: number,
+  toY: number,
+) => {
+  ctx.beginPath();
+  ctx.moveTo(fromX, fromY);
+  ctx.lineTo(toX, toY);
+  ctx.stroke();
+};
+
+const atlasBorder = (
+  ctx: CanvasContext,
+  fromX: number,
+  fromY: number,
+  toX: number,
+  toY: number,
+) => {
+  ctx.strokeStyle = colors.primary;
+  ctx.beginPath();
+  ctx.rect(fromX, fromY, toX, toY);
+  ctx.stroke();
+};
+
+const ATLAS_PADDING = 25;
+const CONTOUR_GAP = 100;
 
 const drawContourLines = (
-  ctx: CanvasRenderingContext2D,
-  atlasSize: AtlasSize,
+  ctx: CanvasContext,
+  width: number,
+  height: number,
 ) => {
   ctx.strokeStyle = colors.primary;
 
-  const width = atlasSize.width;
-  const height = atlasSize.height;
+  const horizontalLineAmount = Math.floor(height / CONTOUR_GAP);
+  const remainingHorizontalSpace =
+    height - CONTOUR_GAP * (horizontalLineAmount - 1);
+  const horizontalAlign = remainingHorizontalSpace / 2;
 
-  const horizontalLineAmount = Math.floor(
-    width / CONTOUR_INTERSECTION_DISTANCE,
-  );
-  const remainginHorizontalSpace =
-    height - CONTOUR_INTERSECTION_DISTANCE * horizontalLineAmount;
-  const horizontalAlignCenter =
-    CONTOUR_INTERSECTION_DISTANCE / 2 - remainginHorizontalSpace / 2;
-
-  for (let i = 0; i < horizontalLineAmount + 2; i++) {
-    const distance = CONTOUR_INTERSECTION_DISTANCE * i - horizontalAlignCenter;
-
-    ctx.moveTo(0, distance);
-    ctx.lineTo(width, distance);
-    ctx.stroke();
+  for (let i = 0; i < horizontalLineAmount; i++) {
+    const horizontalMove = i * CONTOUR_GAP + horizontalAlign;
+    drawLine(ctx, 0, horizontalMove, width, horizontalMove);
   }
 
-  const verticalLineAmount = Math.floor(width / CONTOUR_INTERSECTION_DISTANCE);
-  const remainginVerticalSpace =
-    width - CONTOUR_INTERSECTION_DISTANCE * verticalLineAmount;
-  const verticalAlignCenter =
-    CONTOUR_INTERSECTION_DISTANCE / 2 - remainginVerticalSpace / 2;
+  const verticalLineAmount = Math.floor(width / CONTOUR_GAP);
+  const remainingVerticalSpace = width - CONTOUR_GAP * (verticalLineAmount - 1);
+  const verticalAlign = remainingVerticalSpace / 2;
 
-  for (let i = 0; i < verticalLineAmount + 2; i++) {
-    const distance = CONTOUR_INTERSECTION_DISTANCE * i - verticalAlignCenter;
-    ctx.moveTo(distance, 0);
-    ctx.lineTo(distance, height);
-    ctx.stroke();
+  for (let i = 0; i < verticalLineAmount; i++) {
+    const verticalMove = i * CONTOUR_GAP + verticalAlign;
+    drawLine(ctx, verticalMove, 0, verticalMove, height);
   }
+};
+
+const VAULT_RADIUS = 15;
+
+const drawVault = (ctx: CanvasContext, x: number, y: number) => {
+  ctx.beginPath();
+  ctx.arc(x, y, VAULT_RADIUS, 0, 2 * Math.PI);
+  ctx.stroke();
 };
 
 // TODO: click or hover on vault and display modal
 
 export const drawAtlas = (
-  ctx: CanvasRenderingContext2D,
+  ctx: CanvasContext,
   atlasSize: AtlasSize,
   coordinates: Coordinate[],
 ) => {
-  drawContourLines(ctx, atlasSize);
+  ctx.translate(ATLAS_PADDING, ATLAS_PADDING);
+  const width = atlasSize.width - ATLAS_PADDING * 2;
+  const height = atlasSize.height - ATLAS_PADDING * 2;
+
+  atlasBorder(ctx, 0, 0, width, height);
+  drawContourLines(ctx, width, height);
+  drawVault(ctx, 0, 0);
 };

@@ -55,15 +55,14 @@ You can use a specific Photon built for this migration (20190809214904)
 in your `before` or `after` migration script like this:
 
 ```ts
-import Photon from '@generated/photon/20190809214904'
+import Photon from '@generated/photon/20190809214904';
 
-const photon = new Photon()
+const photon = new Photon();
 
 async function main() {
-  const result = await photon.users()
-  console.dir(result, { depth: null })
+  const result = await photon.users();
+  console.dir(result, { depth: null });
 }
 
-main()
-
+main();
 ```

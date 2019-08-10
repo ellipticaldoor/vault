@@ -25,11 +25,7 @@
         "sequence": null
       },
       "default": {
-        "Expression": [
-          "uuid",
-          "String",
-          []
-        ]
+        "Expression": ["uuid", "String", []]
       }
     },
     {
@@ -42,11 +38,7 @@
       "arity": "required",
       "isUnique": false,
       "default": {
-        "Expression": [
-          "now",
-          "DateTime",
-          []
-        ]
+        "Expression": ["now", "DateTime", []]
       }
     },
     {
@@ -83,11 +75,7 @@
         "sequence": null
       },
       "default": {
-        "Expression": [
-          "uuid",
-          "String",
-          []
-        ]
+        "Expression": ["uuid", "String", []]
       }
     },
     {
