@@ -79,6 +79,28 @@ const drawVault = (ctx: CanvasContext, x: number, y: number) => {
   // TODO: focus on vault, accessibility, tab
 };
 
+const getRelativePoint = (distance: number, bound: Bound, point: number) => {
+  const pointDistance = point - bound.minPoint;
+  if (pointDistance === 0) return 0;
+
+  const relativeDistance = bound.distance / pointDistance;
+  return relativeDistance;
+
+  // const relativeCenter = (bound.maxPoint - bound.minPoint) / 2;
+  // const center = distance / 2;
+};
+
+export const getRelativeCoordinate = (
+  width: number,
+  height: number,
+  bounds: { x: Bound; y: Bound },
+  coordinate: Coordinate,
+) => {
+  const x = getRelativePoint(width, bounds.x, coordinate.x);
+  const y = getRelativePoint(height, bounds.y, coordinate.y);
+  return { x, y };
+};
+
 export const drawAtlas = (
   ctx: CanvasContext,
   atlasSize: AtlasSize,
@@ -93,34 +115,8 @@ export const drawAtlas = (
 
   const atlasBounds = getBounds(vaults);
 
-  const getRelativePoint = (distance: number, bound: Bound, point: number) => {
-    // const relativeCenter = (bound.maxPoint - bound.minPoint) / 2;
-    // const center = distance / 2;
-
-    // console.log(bound);
-
-    // const pointDistance = point - bound.minPoint;
-    // console.log(bound.distance);
-
-    const pointDistance = point - bound.minPoint;
-
-    if (pointDistance === 0) {
-      return 0;
-    }
-
-    const relativeDistance = bound.distance / pointDistance; // - 1
-
-    return relativeDistance + 10;
-  };
-
-  const getRelativeCoordinate = (coordinate: Coordinate) => {
-    const x = getRelativePoint(width, atlasBounds.x, coordinate.x);
-    const y = getRelativePoint(height, atlasBounds.y, coordinate.y);
-    return { x, y };
-  };
-
   vaults.forEach((vault) => {
-    const { x, y } = getRelativeCoordinate(vault);
+    const { x, y } = getRelativeCoordinate(width, height, atlasBounds, vault);
     console.log(vault, { x, y });
     return drawVault(ctx, x, y);
   });
