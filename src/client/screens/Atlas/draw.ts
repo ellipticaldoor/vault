@@ -1,6 +1,8 @@
 import { prop, sort, first, last } from 'remeda';
 import { AtlasSize } from 'client/screens/Atlas/helpers';
 import { colors } from 'client/styles';
+import { CanvasContext, drawLine } from 'client/helpers';
+import { Vault } from 'api/graphql';
 
 export type Coordinate = { x: number; y: number };
 export type Position = { x: number; y: number };
@@ -28,22 +30,7 @@ export const getAtlasRuleMeasure = (coordinates: Coordinate[]) => {
 //   coordinate: Coordinate,
 // ): Position => {};
 
-// const drawVault = (ctx: CanvasRenderingContext2D, position: Position) => {};
-
-type CanvasContext = CanvasRenderingContext2D;
-
-const drawLine = (
-  ctx: CanvasContext,
-  fromX: number,
-  fromY: number,
-  toX: number,
-  toY: number,
-) => {
-  ctx.beginPath();
-  ctx.moveTo(fromX, fromY);
-  ctx.lineTo(toX, toY);
-  ctx.stroke();
-};
+// const drawVault = (ctx: CanvasContext, position: Position) => {};
 
 const atlasBorder = (
   ctx: CanvasContext,
@@ -101,7 +88,7 @@ const drawVault = (ctx: CanvasContext, x: number, y: number) => {
 export const drawAtlas = (
   ctx: CanvasContext,
   atlasSize: AtlasSize,
-  coordinates: Coordinate[],
+  vaults: Vault[],
 ) => {
   ctx.translate(ATLAS_PADDING, ATLAS_PADDING);
   const width = atlasSize.width - ATLAS_PADDING * 2;
@@ -109,5 +96,5 @@ export const drawAtlas = (
 
   atlasBorder(ctx, 0, 0, width, height);
   drawContourLines(ctx, width, height);
-  drawVault(ctx, 0, 0);
+  vaults.forEach(({ x, y }) => drawVault(ctx, x, y));
 };
