@@ -70,13 +70,10 @@ const drawContourLines = (
 
 const VAULT_RADIUS = 15;
 
-const drawVault = (ctx: CanvasContext, x: number, y: number) => {
+const drawVault = (ctx: CanvasContext, x: number, y: number, id: string) => {
   ctx.beginPath();
   ctx.arc(x, y, VAULT_RADIUS, 0, 2 * Math.PI);
   ctx.stroke();
-
-  // TODO: click on vault
-  // TODO: focus on vault, accessibility, tab
 };
 
 const getRelativePoint = (distance: number, bound: Bound, point: number) => {
@@ -110,10 +107,10 @@ export const drawAtlas = (
   atlasBorder(ctx, 0, 0, width, height);
   drawContourLines(ctx, width, height);
 
-  const atlasBounds = getBounds(vaults);
+  // const atlasBounds = getBounds(vaults);
 
-  vaults.forEach((vault) => {
-    const { x, y } = getRelativeCoordinate(width, height, atlasBounds, vault);
-    return drawVault(ctx, x, y);
-  });
+  // vaults.forEach((vault) => {
+  //   const { x, y } = getRelativeCoordinate(width, height, atlasBounds, vault);
+  //   return drawVault(ctx, x, y, vault.id);
+  // });
 };
