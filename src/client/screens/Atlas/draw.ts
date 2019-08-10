@@ -6,31 +6,24 @@ import { Vault } from 'api/graphql';
 
 export type Coordinate = { x: number; y: number };
 export type Position = { x: number; y: number };
+export type Bound = { minPoint: number; maxPoint: number; distance: number };
 
-const minMaxDistance = (points: number[]) => {
+const pointBounds = (points: number[]): Bound => {
   if (points.length === 0) {
-    return 0;
+    return { minPoint: 0, maxPoint: 0, distance: 0 };
   }
   const sortedPoints = sort(points, (a, b) => a - b);
-  const fisrtPoint = first(sortedPoints);
-  const lastPoint = last(sortedPoints);
+  const minPoint = first(sortedPoints);
+  const maxPoint = last(sortedPoints);
+  const distance = maxPoint - minPoint;
 
-  return lastPoint - fisrtPoint;
+  return { minPoint, maxPoint, distance };
 };
 
-export const getAtlasRuleMeasure = (coordinates: Coordinate[]) => {
-  return {
-    ruleX: minMaxDistance(coordinates.map(prop('x'))),
-    ruleY: minMaxDistance(coordinates.map(prop('y'))),
-  };
-};
-
-// const getCoordinatePosition = (
-//   atlasSize: AtlasSize,
-//   coordinate: Coordinate,
-// ): Position => {};
-
-// const drawVault = (ctx: CanvasContext, position: Position) => {};
+export const getBounds = (coordinates: Coordinate[]) => ({
+  x: pointBounds(coordinates.map(prop('x'))),
+  y: pointBounds(coordinates.map(prop('y'))),
+});
 
 const atlasBorder = (
   ctx: CanvasContext,
@@ -75,15 +68,16 @@ const drawContourLines = (
   }
 };
 
-const VAULT_RADIUS = 15;
+const VAULT_RADIUS = 1;
 
 const drawVault = (ctx: CanvasContext, x: number, y: number) => {
   ctx.beginPath();
   ctx.arc(x, y, VAULT_RADIUS, 0, 2 * Math.PI);
   ctx.stroke();
-};
 
-// TODO: click or hover on vault and display modal
+  // TODO: click on vault
+  // TODO: focus on vault, accessibility, tab
+};
 
 export const drawAtlas = (
   ctx: CanvasContext,
@@ -96,5 +90,38 @@ export const drawAtlas = (
 
   atlasBorder(ctx, 0, 0, width, height);
   drawContourLines(ctx, width, height);
-  vaults.forEach(({ x, y }) => drawVault(ctx, x, y));
+
+  const atlasBounds = getBounds(vaults);
+
+  const getRelativePoint = (distance: number, bound: Bound, point: number) => {
+    // const relativeCenter = (bound.maxPoint - bound.minPoint) / 2;
+    // const center = distance / 2;
+
+    // console.log(bound);
+
+    // const pointDistance = point - bound.minPoint;
+    // console.log(bound.distance);
+
+    const pointDistance = point - bound.minPoint;
+
+    if (pointDistance === 0) {
+      return 0;
+    }
+
+    const relativeDistance = bound.distance / pointDistance; // - 1
+
+    return relativeDistance + 10;
+  };
+
+  const getRelativeCoordinate = (coordinate: Coordinate) => {
+    const x = getRelativePoint(width, atlasBounds.x, coordinate.x);
+    const y = getRelativePoint(height, atlasBounds.y, coordinate.y);
+    return { x, y };
+  };
+
+  vaults.forEach((vault) => {
+    const { x, y } = getRelativeCoordinate(vault);
+    console.log(vault, { x, y });
+    return drawVault(ctx, x, y);
+  });
 };
