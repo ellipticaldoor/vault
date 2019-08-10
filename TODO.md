@@ -1,6 +1,5 @@
 # Dev
 
-- use alias instead of baseurl
 - colorize apollo server error and improve readability
 - disable cra typescript checking
 - improve username and password validation error
