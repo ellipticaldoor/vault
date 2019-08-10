@@ -17,16 +17,3 @@ export const scaleCanvas = (
 
   ctx.scale(ratio, ratio);
 };
-
-export const drawLine = (
-  ctx: CanvasContext,
-  fromX: number,
-  fromY: number,
-  toX: number,
-  toY: number,
-) => {
-  ctx.beginPath();
-  ctx.moveTo(fromX, fromY);
-  ctx.lineTo(toX, toY);
-  ctx.stroke();
-};

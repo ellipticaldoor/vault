@@ -1,6 +1,6 @@
 import { NAV_WIDTH, STATE_PANEL_WIDTH } from '~/client/components';
 import { colors } from '~/client/styles';
-import { CanvasContext, drawLine } from '~/client/helpers';
+import { CanvasContext } from '~/client/helpers';
 
 export type AtlasSize = {
   width: number;
@@ -32,7 +32,17 @@ const atlasBorder = (
   toY: number,
 ) => {
   ctx.rect(fromX, fromY, toX, toY);
-  ctx.stroke();
+};
+
+export const drawLine = (
+  ctx: CanvasContext,
+  fromX: number,
+  fromY: number,
+  toX: number,
+  toY: number,
+) => {
+  ctx.moveTo(fromX, fromY);
+  ctx.lineTo(toX, toY);
 };
 
 const CONTOUR_GAP = 100;
@@ -68,6 +78,10 @@ export const drawAtlas = (
 ) => {
   ctx.translate(ATLAS_PADDING, ATLAS_PADDING);
   ctx.strokeStyle = colors.primary;
+  ctx.beginPath();
+
   atlasBorder(ctx, 0, 0, paddedWidth, paddedHeight);
   drawContourLines(ctx, paddedWidth, paddedHeight);
+
+  ctx.stroke();
 };
