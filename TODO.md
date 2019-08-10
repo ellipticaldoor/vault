@@ -1,19 +1,42 @@
-- create link component instead of global one
+# Dev
+
 - use alias instead of baseurl
-- generate vaults and missions
+- colorize apollo server error and improve readability
+- disable cra typescript checking
+- improve username and password validation error
+- remove apollo boost and make custom client
+- generate vaults and missions for development
+- hide debug schema on production
+
+# DB
+
 - sync state with db
 - periodic save of state on db
-- client side prediction
-- eslint accesibility a11y
-- hide debug schema on production
-- validate vault coordinate doesn't exists before creating a new vault
-- remove apollo boost and make custom client
-- improve username and password validation error
-- colorize apollo server error and improve readability
-- client side input validation
-- responsive UI
 - create database for e2e testing, create .env.testing to use in yarn test
-- Add a rank system based in points
-- disable cra typescript checking
-- retina canvas
+- validate vault coordinate doesn't exists before creating a new vault
+
+# UI
+
+- create <a> link component instead of global one
+- responsive canvas
+- responsive UI
 - dark theme
+- client side input validation
+- error message component
+- eslint accesibility a11y
+- don't create sourcemaps on build
+- client side prediction of resources and ticks
+- underline current screen on nav
+- display title of the screen on chrome tab
+- display vaults info on atlas
+- display modal on vault click to show info and attack
+- add error message prop to every input
+
+# Feat
+
+- Add a rank system based in points
+- Resources Screen
+
+# Art
+
+- find artist to make illustrations

@@ -1,5 +1,4 @@
 import { prop, sort, first, last } from 'remeda';
-import { AtlasSize } from './drawAtlas';
 
 export type Coordinate = { x: number; y: number };
 export type Position = { x: number; y: number };
@@ -31,7 +30,7 @@ const getRelativePoint = (distance: number, bound: Bound, point: number) => {
 };
 
 export const getRelativeCoordinate = (
-  { paddedWidth, paddedHeight }: AtlasSize,
+  { paddedWidth, paddedHeight }: { paddedWidth: number; paddedHeight: number },
   bounds: { x: Bound; y: Bound },
   coordinate: Coordinate,
 ) => {

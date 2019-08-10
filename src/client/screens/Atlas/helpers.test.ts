@@ -30,6 +30,7 @@ test('getBounds', () => {
 test('getRelativeCoordinate', () => {
   const width = 300;
   const height = 600;
+  const atlasSize = { paddedWidth: width, paddedHeight: height };
   const coordinates = [
     { x: 0, y: 0 },
     { x: 10, y: 10 },
@@ -39,27 +40,27 @@ test('getRelativeCoordinate', () => {
   ];
   const bounds = getBounds(coordinates);
 
-  expect(getRelativeCoordinate(width, height, bounds, coordinates[0])).toEqual({
+  expect(getRelativeCoordinate(atlasSize, bounds, coordinates[0])).toEqual({
     x: width / 2,
     y: height / 2,
   });
 
-  expect(getRelativeCoordinate(width, height, bounds, coordinates[1])).toEqual({
+  expect(getRelativeCoordinate(atlasSize, bounds, coordinates[1])).toEqual({
     x: width,
     y: height,
   });
 
-  expect(getRelativeCoordinate(width, height, bounds, coordinates[2])).toEqual({
+  expect(getRelativeCoordinate(atlasSize, bounds, coordinates[2])).toEqual({
     x: 0,
     y: 0,
   });
 
-  expect(getRelativeCoordinate(width, height, bounds, coordinates[3])).toEqual({
+  expect(getRelativeCoordinate(atlasSize, bounds, coordinates[3])).toEqual({
     x: width,
     y: 0,
   });
 
-  expect(getRelativeCoordinate(width, height, bounds, coordinates[4])).toEqual({
+  expect(getRelativeCoordinate(atlasSize, bounds, coordinates[4])).toEqual({
     x: 0,
     y: height,
   });
