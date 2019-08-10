@@ -31,8 +31,6 @@ const atlasBorder = (
   toX: number,
   toY: number,
 ) => {
-  ctx.strokeStyle = colors.primary;
-  ctx.beginPath();
   ctx.rect(fromX, fromY, toX, toY);
   ctx.stroke();
 };
@@ -44,8 +42,6 @@ const drawContourLines = (
   width: number,
   height: number,
 ) => {
-  ctx.strokeStyle = colors.primary;
-
   const horizontalLineAmount = Math.floor(height / CONTOUR_GAP);
   const remainingHorizontalSpace =
     height - CONTOUR_GAP * (horizontalLineAmount - 1);
@@ -71,6 +67,7 @@ export const drawAtlas = (
   { paddedWidth, paddedHeight }: AtlasSize,
 ) => {
   ctx.translate(ATLAS_PADDING, ATLAS_PADDING);
+  ctx.strokeStyle = colors.primary;
   atlasBorder(ctx, 0, 0, paddedWidth, paddedHeight);
   drawContourLines(ctx, paddedWidth, paddedHeight);
 };
