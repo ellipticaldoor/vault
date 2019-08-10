@@ -1,3 +1,7 @@
+# Other
+
+- make screenshots default to jpg on macos
+
 # Dev
 
 - colorize apollo server error and improve readability
@@ -20,7 +24,6 @@
 - create <a> link component instead of global one
 - responsive canvas
 - responsive UI
-- dark theme
 - client side input validation
 - error message component
 - eslint accesibility a11y
@@ -32,6 +35,9 @@
 - display modal on vault click to show info and attack
 - add error message prop to every input
 - better select right icon
+- settings screen
+  -dark theme
+  -update password
 
 # Feat
 
