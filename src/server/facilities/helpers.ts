@@ -1,6 +1,6 @@
-import { ID } from 'server/game';
-import { FacilityKind, FACILITY_STATS } from 'server/facilities';
-import { GameState } from 'server/state';
+import { ID } from '~/server/game';
+import { FacilityKind, FACILITY_STATS } from '~/server/facilities';
+import { GameState } from '~/server/state';
 
 export const upgradeFacilityLevel = (
   gameState: GameState,

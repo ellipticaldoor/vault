@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Size, SizeType, getSize, sizes } from 'client/styles';
+import { Size, SizeType, getSize, sizes } from '~/client/styles';
 
 export type TextProps = {
   children: string | string[];

@@ -4,8 +4,8 @@ import {
   Text,
   TextTitle,
   ListMissions,
-} from 'client/components';
-import useGameStateContext from 'client/state';
+} from '~/client/components';
+import useGameStateContext from '~/client/state';
 
 export const Home: React.FC = () => {
   const {

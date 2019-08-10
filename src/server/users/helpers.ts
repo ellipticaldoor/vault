@@ -1,9 +1,9 @@
-import Photon, { User } from 'server/photon';
-import { createId } from 'server/helpers';
-import { createVault } from 'server/vaults';
-import { GameState } from 'server/state';
-import { hashPassword } from 'server/auth';
-import { ERROR } from 'server/language';
+import Photon, { User } from '~/server/photon';
+import { createId } from '~/server/helpers';
+import { createVault } from '~/server/vaults';
+import { GameState } from '~/server/state';
+import { hashPassword } from '~/server/auth';
+import { ERROR } from '~/server/language';
 import Joi from 'joi';
 
 export const validateUsername = (username: string) => {

@@ -1,8 +1,8 @@
-import Photon from 'server/photon';
-import { Resource } from 'server/resources';
-import { Vault } from 'server/vaults';
-import { Mission } from 'server/missions';
-import { Facility } from 'server/facilities';
+import Photon from '~/server/photon';
+import { Resource } from '~/server/resources';
+import { Vault } from '~/server/vaults';
+import { Mission } from '~/server/missions';
+import { Facility } from '~/server/facilities';
 
 export type SerializedGameState = {
   id: number;

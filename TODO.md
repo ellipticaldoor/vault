@@ -31,6 +31,7 @@
 - display vaults info on atlas
 - display modal on vault click to show info and attack
 - add error message prop to every input
+- better select right icon
 
 # Feat
 

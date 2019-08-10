@@ -1,4 +1,4 @@
-import { User } from 'server/photon';
+import { User } from '~/server/photon';
 
 export type TokenPayload = {
   userId: string;

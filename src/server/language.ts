@@ -1,4 +1,4 @@
-import { Coordinate } from 'server/game';
+import { Coordinate } from '~/server/game';
 
 export const ERROR = {
   INVALID_TOKEN: 'Invalid token',

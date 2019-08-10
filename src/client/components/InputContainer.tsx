@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Size, getSize, sizes, colors, border } from 'client/styles';
+import { Size, getSize, sizes, colors, border } from '~/client/styles';
 
 export type InputContainerProps = {
   margin?: Size;

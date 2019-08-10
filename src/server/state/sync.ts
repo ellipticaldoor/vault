@@ -1,5 +1,5 @@
-import Photon from 'server/photon';
-import { GameState, SerializedGameState, Table } from 'server/state';
+import Photon from '~/server/photon';
+import { GameState, SerializedGameState, Table } from '~/server/state';
 
 export const syncDbWithGameState = async (
   photon: Photon,

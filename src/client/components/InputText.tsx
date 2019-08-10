@@ -1,6 +1,6 @@
 import React from 'react';
-import { TextLabel, InputContainer, Input } from 'client/components';
-import { Size } from 'client/styles';
+import { TextLabel, InputContainer, Input } from '~/client/components';
+import { Size } from '~/client/styles';
 
 export type TextInputProps = {
   value: string;

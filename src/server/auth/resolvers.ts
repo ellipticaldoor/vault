@@ -1,10 +1,10 @@
-import { ERROR } from 'server/language';
-import { Resolvers, MutationResolvers, AuthPayloadResolvers } from 'api';
+import { ERROR } from '~/server/language';
+import { Resolvers, MutationResolvers, AuthPayloadResolvers } from '~/api';
 import { prop } from 'remeda';
-import { signToken } from 'server/auth';
-import { AuthContext } from 'server/apollo';
+import { signToken } from '~/server/auth';
+import { AuthContext } from '~/server/apollo';
 import { compare } from 'bcrypt';
-import { validateUsername, validatePassword, createUser } from 'server/users';
+import { validateUsername, validatePassword, createUser } from '~/server/users';
 
 const AuthPayload: AuthPayloadResolvers = {
   token: prop('token'),

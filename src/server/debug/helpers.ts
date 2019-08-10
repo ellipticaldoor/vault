@@ -1,15 +1,15 @@
-import Photon from 'server/photon';
-import { NODE_ENV } from 'server/env';
+import Photon from '~/server/photon';
+import { NODE_ENV } from '~/server/env';
 import {
   GameState,
   setGameState,
   SERIALIZED_INITIAL_GAMESTATE,
-} from 'server/state';
-// import { resetGameStateRequest } from 'server/debug';
-// import { loginRequest } from 'server/auth';
-// import { TEST_USER } from 'server/debug';
-// import { AuthPayloadFieldsFragment } from 'server/apollo';
-import { seedGameState, resetDb } from 'server/debug';
+} from '~/server/state';
+// import { resetGameStateRequest } from '~/server/debug';
+// import { loginRequest } from '~/server/auth';
+// import { TEST_USER } from '~/server/debug';
+// import { AuthPayloadFieldsFragment } from '~/server/apollo';
+import { seedGameState, resetDb } from '~/server/debug';
 
 export const validateTestingMode = () => {
   const isTestingMode = NODE_ENV === 'development' || NODE_ENV === 'test';

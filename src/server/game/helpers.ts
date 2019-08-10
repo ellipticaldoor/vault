@@ -1,5 +1,5 @@
-import { createGameState, GameState } from 'server/state';
-import { GAMESTATE_REFRESH_RATE } from 'server/game/constants';
+import { createGameState, GameState } from '~/server/state';
+import { GAMESTATE_REFRESH_RATE } from '~/server/game/constants';
 
 const startGameLoop = (gameState: GameState) => {
   setInterval(() => {

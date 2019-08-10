@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "noUnusedLocals": true,
     "allowJs": true,
@@ -28,8 +29,7 @@
     "newLine": "LF",
     "target": "es5",
     "types": ["node", "jest"],
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "baseUrl": "src"
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": ["src"],
   "exclude": [".git", "node_modules"]

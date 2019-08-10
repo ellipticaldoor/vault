@@ -1,13 +1,13 @@
-import { Coordinate } from 'server/game';
-import { ResourceUpdate } from 'server/resources';
-import { GameState } from 'server/state';
-import { triggerMissionEvents } from 'server/missions';
+import { Coordinate } from '~/server/game';
+import { ResourceUpdate } from '~/server/resources';
+import { GameState } from '~/server/state';
+import { triggerMissionEvents } from '~/server/missions';
 import {
   IRON_PRODUCTION_FACTOR,
   DWELLERS_BORN_TICK_FACTOR,
   DEWLLERS_BORN_AMOUNT,
   ACCELERATION,
-} from 'server/ticks';
+} from '~/server/ticks';
 
 export const nextTickResources = (gameState: GameState) => {
   const vaults = gameState.vaults();

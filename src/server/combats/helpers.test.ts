@@ -1,5 +1,5 @@
 import cases from 'jest-in-case';
-import * as helpers from 'server/helpers';
+import * as helpers from '~/server/helpers';
 import {
   getCombatStats,
   decideWinner,
@@ -8,10 +8,10 @@ import {
   calculateWinningsAndLosses,
   applyCombatSimulation,
   Winner,
-} from 'server/combats';
-import { createMission, MissionKind } from 'server/missions';
-import { createGameState } from 'server/state';
-import { createVault } from 'server/vaults';
+} from '~/server/combats';
+import { createMission, MissionKind } from '~/server/missions';
+import { createGameState } from '~/server/state';
+import { createVault } from '~/server/vaults';
 
 beforeEach(() => {
   jest.restoreAllMocks();

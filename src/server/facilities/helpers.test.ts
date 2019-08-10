@@ -1,6 +1,6 @@
-import { createGameState } from 'server/state';
-import { createVault } from 'server/vaults';
-import { FacilityKind, upgradeFacilityLevel } from 'server/facilities';
+import { createGameState } from '~/server/state';
+import { createVault } from '~/server/vaults';
+import { FacilityKind, upgradeFacilityLevel } from '~/server/facilities';
 
 describe('upgradeFacilityLevel', () => {
   test('increases the level of a facility', () => {

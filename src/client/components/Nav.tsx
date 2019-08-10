@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Route } from 'client/routes';
+import { Route } from '~/client/routes';
 import styled from 'styled-components';
-import { sizes } from 'client/styles';
+import { sizes } from '~/client/styles';
 
 export type NavProps = {
   routes: Route[];

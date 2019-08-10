@@ -3,11 +3,11 @@ import {
   missionOnArrival,
   missionOnComeback,
   MissionKind,
-} from 'server/missions';
+} from '~/server/missions';
 import cases from 'jest-in-case';
-import * as helpers from 'server/helpers';
-import { createGameState } from 'server/state';
-import { createVault } from 'server/vaults';
+import * as helpers from '~/server/helpers';
+import { createGameState } from '~/server/state';
+import { createVault } from '~/server/vaults';
 
 beforeEach(() => {
   jest.restoreAllMocks();

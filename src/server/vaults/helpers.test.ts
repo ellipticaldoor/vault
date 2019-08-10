@@ -1,5 +1,5 @@
-import { createGameState } from 'server/state';
-import { createVault } from 'server/vaults';
+import { createGameState } from '~/server/state';
+import { createVault } from '~/server/vaults';
 import cases from 'jest-in-case';
 
 test('createUniqueCoordinate', () => {

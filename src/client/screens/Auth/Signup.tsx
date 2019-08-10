@@ -5,9 +5,9 @@ import {
   Text,
   TextInput,
   Button,
-} from 'client/components';
+} from '~/client/components';
 import { useMutation } from '@apollo/react-hooks';
-import { SIGNUP, SignupMutation } from 'api';
+import { SIGNUP, SignupMutation } from '~/api';
 
 export const Signup: React.FC = () => {
   const [username, setUsername] = useState('');

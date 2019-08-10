@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mission } from 'api';
+import { Mission } from '~/api';
 
 export type ListMissionsProps = {
   missions: Mission[];

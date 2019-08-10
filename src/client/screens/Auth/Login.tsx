@@ -4,7 +4,7 @@ import {
   TextTitle,
   TextInput,
   Button,
-} from 'client/components';
+} from '~/client/components';
 
 export const Login: React.FC = () => {
   const [username, setUsername] = useState('ellipticaldoor');

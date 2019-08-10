@@ -1,5 +1,5 @@
-import { ResourceUpdate } from 'server/resources';
-import { FacilityKind } from 'server/facilities';
+import { ResourceUpdate } from '~/server/resources';
+import { FacilityKind } from '~/server/facilities';
 
 type FacilityStats = {
   [k in FacilityKind]: {

@@ -1,7 +1,7 @@
 import { sign } from 'jsonwebtoken';
-import { JWT_SECRET } from 'server/env';
-import { JWT_SECRET_EXPIRES_IN, TokenPayload } from 'server/auth';
-import { User } from 'server/photon';
+import { JWT_SECRET } from '~/server/env';
+import { JWT_SECRET_EXPIRES_IN, TokenPayload } from '~/server/auth';
+import { User } from '~/server/photon';
 import { hash } from 'bcrypt';
 
 export const signToken = (user: User): string => {

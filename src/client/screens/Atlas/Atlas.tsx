@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import styled from 'styled-components';
-import { getBounds, getRelativeCoordinate } from 'client/screens/Atlas/helpers';
-import { drawAtlas, getAtlasSize } from 'client/screens/Atlas/drawAtlas';
-import { CanvasContext, scaleCanvas } from 'client/helpers';
-import { Vault } from 'api/graphql';
-import { createId } from 'server/helpers';
+import {
+  getBounds,
+  getRelativeCoordinate,
+} from '~/client/screens/Atlas/helpers';
+import { drawAtlas, getAtlasSize } from '~/client/screens/Atlas/drawAtlas';
+import { CanvasContext, scaleCanvas } from '~/client/helpers';
+import { Vault } from '~/api/graphql';
+import { createId } from '~/server/helpers';
 import { VaultButton } from './VaultButton';
 
 const initialVaults = [

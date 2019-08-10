@@ -1,7 +1,7 @@
 import cases from 'jest-in-case';
-import { createGameState } from 'server/state';
-import { createMission, MissionKind } from 'server/missions';
-import { createVault } from 'server/vaults';
+import { createGameState } from '~/server/state';
+import { createMission, MissionKind } from '~/server/missions';
+import { createVault } from '~/server/vaults';
 
 cases(
   'getMission, addMission',

@@ -2,11 +2,11 @@ import {
   nextTickResources,
   nextTick,
   ticksToTravel,
-} from 'server/ticks/helpers';
+} from '~/server/ticks/helpers';
 import cases from 'jest-in-case';
-import { createGameState } from 'server/state';
-import { VAULT_DEFAULT_RESOURCE, createVault } from 'server/vaults';
-import { FacilityKind } from 'server/facilities';
+import { createGameState } from '~/server/state';
+import { VAULT_DEFAULT_RESOURCE, createVault } from '~/server/vaults';
+import { FacilityKind } from '~/server/facilities';
 
 cases(
   'nextTickResources',

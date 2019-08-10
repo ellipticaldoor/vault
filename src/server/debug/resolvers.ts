@@ -3,10 +3,10 @@ import {
   QueryResolvers,
   MutationResolvers,
   GameStateResolvers,
-} from 'api';
+} from '~/api';
 import { prop } from 'remeda';
-import { serializeGamestate } from 'server/state';
-import { resetGameState } from 'server/debug';
+import { serializeGamestate } from '~/server/state';
+import { resetGameState } from '~/server/debug';
 
 const GameState: GameStateResolvers = {
   id: prop('id'),

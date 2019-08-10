@@ -1,7 +1,7 @@
-import { ID } from 'server/game';
-import { Facility, FacilityKind } from 'server/facilities';
-import { ERROR } from 'server/language';
-import { findOneState, setArrayState, addToArrayState } from 'server/state';
+import { ID } from '~/server/game';
+import { Facility, FacilityKind } from '~/server/facilities';
+import { ERROR } from '~/server/language';
+import { findOneState, setArrayState, addToArrayState } from '~/server/state';
 
 export const createFacilities = () => {
   const facilities: Facility[] = [];

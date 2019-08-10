@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { sizes, colors, border, outline } from 'client/styles';
+import { sizes, colors, border, outline } from '~/client/styles';
 
 export type InputProps = React.ComponentProps<typeof StyledInput>;
 

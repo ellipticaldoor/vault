@@ -1,4 +1,4 @@
-import { SerializedGameState } from 'server/state';
+import { SerializedGameState } from '~/server/state';
 
 export const DEFAULT_GAME_STATE_ID = 1;
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import useGameStateContext from 'client/state';
-import { Text } from 'client/components';
+import useGameStateContext from '~/client/state';
+import { Text } from '~/client/components';
 import styled from 'styled-components';
-import { sizes } from 'client/styles';
+import { sizes } from '~/client/styles';
 
 export const StatePanel: React.FC = () => {
   const { state } = useGameStateContext();

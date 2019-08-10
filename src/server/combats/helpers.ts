@@ -1,10 +1,10 @@
-import { ID } from 'server/game';
-import { Vault } from 'server/vaults';
-import { Resource, ResourceUpdate } from 'server/resources';
-import { OFFENSIVE_STATS, CombatStats, Winner } from 'server/combats';
-import { randomPercentage } from 'server/helpers';
-import { Mission } from 'server/missions';
-import { GameState } from 'server/state';
+import { ID } from '~/server/game';
+import { Vault } from '~/server/vaults';
+import { Resource, ResourceUpdate } from '~/server/resources';
+import { OFFENSIVE_STATS, CombatStats, Winner } from '~/server/combats';
+import { randomPercentage } from '~/server/helpers';
+import { Mission } from '~/server/missions';
+import { GameState } from '~/server/state';
 
 export const getCombatStats = (resources: Resource): CombatStats => {
   return {

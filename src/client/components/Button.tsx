@@ -1,6 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Size, border, colors, getSize, lighten, outline } from 'client/styles';
+import {
+  Size,
+  border,
+  colors,
+  getSize,
+  lighten,
+  outline,
+} from '~/client/styles';
 
 export type ButtonProps = {
   onClick: () => void;

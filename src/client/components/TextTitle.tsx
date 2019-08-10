@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'client/components';
+import { Text } from '~/client/components';
 
 export type TextTitleProps = {
   children: string | string[];

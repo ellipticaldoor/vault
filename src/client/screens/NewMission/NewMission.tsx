@@ -7,9 +7,9 @@ import {
   Button,
   Select,
   InputCoordinate,
-} from 'client/components';
-import { MissionKind } from 'api';
-import useGameStateContext from 'client/state';
+} from '~/client/components';
+import { MissionKind } from '~/api';
+import useGameStateContext from '~/client/state';
 
 const missionKindOptions = Object.keys(MissionKind);
 

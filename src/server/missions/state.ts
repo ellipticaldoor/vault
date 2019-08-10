@@ -1,11 +1,11 @@
-import { Mission } from 'server/missions';
-import { ERROR } from 'server/language';
+import { Mission } from '~/server/missions';
+import { ERROR } from '~/server/language';
 import {
   findOneState,
   queryState,
   setArrayState,
   addToArrayState,
-} from 'server/state';
+} from '~/server/state';
 
 export const createMissions = () => {
   const missions: Mission[] = [];

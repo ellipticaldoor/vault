@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from 'client/styles';
+import { colors } from '~/client/styles';
 
 const VAULT_BORDER = 2;
 const VAULT_SIZE = 24;

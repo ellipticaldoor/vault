@@ -1,6 +1,6 @@
-import Photon, { User } from 'server/photon';
+import Photon, { User } from '~/server/photon';
 import { Request, Response } from 'express';
-import { GameState } from 'server/state';
+import { GameState } from '~/server/state';
 
 export type ExpressContext = {
   req: Request;

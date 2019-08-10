@@ -1,11 +1,11 @@
-import { Vault } from 'server/vaults';
-import { ERROR } from 'server/language';
+import { Vault } from '~/server/vaults';
+import { ERROR } from '~/server/language';
 import {
   findOneState,
   queryState,
   setArrayState,
   addToArrayState,
-} from 'server/state';
+} from '~/server/state';
 
 export const createVaults = () => {
   const vaults: Vault[] = [];

@@ -1,6 +1,6 @@
-import { Resource, ResourceUpdate } from 'server/resources';
+import { Resource, ResourceUpdate } from '~/server/resources';
 import { mapKeys } from 'remeda';
-import { ERROR } from 'server/language';
+import { ERROR } from '~/server/language';
 
 const EXCLUDED_RESOURCE_KEYS = ['id'];
 

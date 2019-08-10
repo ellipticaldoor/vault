@@ -1,6 +1,6 @@
-import { createGame } from 'server/game';
-import { createServer } from 'server/apollo';
-import { API_PORT, API_ENDPOINT, NODE_ENV } from 'server/env';
+import { createGame } from '~/server/game';
+import { createServer } from '~/server/apollo';
+import { API_PORT, API_ENDPOINT, NODE_ENV } from '~/server/env';
 
 const startMessage = `📡 vault server ready at ${API_ENDPOINT} in ${NODE_ENV}`;
 

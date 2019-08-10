@@ -1,4 +1,4 @@
-import { createGameState } from 'server/state';
+import { createGameState } from '~/server/state';
 
 it('increaseTicks', () => {
   const gameState = createGameState();

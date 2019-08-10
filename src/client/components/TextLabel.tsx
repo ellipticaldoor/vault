@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text } from 'client/components';
-import { Size } from 'client/styles';
+import { Text } from '~/client/components';
+import { Size } from '~/client/styles';
 
 export type TextLabelProps = {
   children?: string | string[];

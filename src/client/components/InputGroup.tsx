@@ -1,7 +1,7 @@
 import React from 'react';
-import { TextLabel } from 'client/components';
+import { TextLabel } from '~/client/components';
 import styled from 'styled-components';
-import { sizes, colors, border } from 'client/styles';
+import { sizes, colors, border } from '~/client/styles';
 
 export type InputGroupProps = {
   label: string;

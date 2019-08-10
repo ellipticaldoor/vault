@@ -1,4 +1,4 @@
-import { ID } from 'server/game';
+import { ID } from '~/server/game';
 
 export enum FacilityKind {
   IronMine = 'ironMine',

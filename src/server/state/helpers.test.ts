@@ -8,7 +8,7 @@ import {
   updateBy,
   paginate,
   query,
-} from 'server/state';
+} from '~/server/state';
 
 type TestObject = {
   id: string;

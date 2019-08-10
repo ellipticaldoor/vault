@@ -1,5 +1,5 @@
 import cases from 'jest-in-case';
-import { updateResource } from 'server/resources';
+import { updateResource } from '~/server/resources';
 
 cases(
   'updateResource',

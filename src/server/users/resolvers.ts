@@ -1,6 +1,6 @@
-import { Resolvers, QueryResolvers, UserResolvers } from 'api';
+import { Resolvers, QueryResolvers, UserResolvers } from '~/api';
 import { prop } from 'remeda';
-import { ERROR } from 'server/language';
+import { ERROR } from '~/server/language';
 
 const User: UserResolvers = {
   id: ({ id }) => id,

@@ -1,8 +1,8 @@
-import { ID, Coordinate } from 'server/game';
-import { Vault, VAULT_DEFAULT_RESOURCE } from 'server/vaults';
-import { GameState } from 'server/state';
-import { createId } from 'server/helpers';
-import { ERROR } from 'server/language';
+import { ID, Coordinate } from '~/server/game';
+import { Vault, VAULT_DEFAULT_RESOURCE } from '~/server/vaults';
+import { GameState } from '~/server/state';
+import { createId } from '~/server/helpers';
+import { ERROR } from '~/server/language';
 
 export const randomInt = (limit: number) => {
   const int = Math.floor(Math.random() * limit) + 0;

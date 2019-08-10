@@ -1,6 +1,6 @@
-import { NAV_WIDTH, STATE_PANEL_WIDTH } from 'client/components';
-import { colors } from 'client/styles';
-import { CanvasContext, drawLine } from 'client/helpers';
+import { NAV_WIDTH, STATE_PANEL_WIDTH } from '~/client/components';
+import { colors } from '~/client/styles';
+import { CanvasContext, drawLine } from '~/client/helpers';
 
 export type AtlasSize = {
   width: number;

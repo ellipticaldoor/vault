@@ -1,12 +1,12 @@
-import Photon, { UserDelegate } from 'server/photon';
+import Photon, { UserDelegate } from '~/server/photon';
 import {
   GameState,
   Table,
   // DEFAULT_GAME_STATE_ID
-} from 'server/state';
-import { createUser } from 'server/users';
-import { createVault } from 'server/vaults';
-import { TEST_USER, validateTestingMode } from 'server/debug';
+} from '~/server/state';
+import { createUser } from '~/server/users';
+import { createVault } from '~/server/vaults';
+import { TEST_USER, validateTestingMode } from '~/server/debug';
 
 const deleteTable = async (photon: Photon, table: Table) => {
   // Warning: UserDelegate is forced as a type to enable to query generic methods

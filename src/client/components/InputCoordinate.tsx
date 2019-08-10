@@ -1,6 +1,6 @@
 import React from 'react';
-import { TextLabel, InputNumber, InputContainer } from 'client/components';
-import { Size } from 'client/styles';
+import { TextLabel, InputNumber, InputContainer } from '~/client/components';
+import { Size } from '~/client/styles';
 
 export type CoordinateInputProps = {
   label: string;

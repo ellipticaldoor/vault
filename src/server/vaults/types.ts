@@ -1,4 +1,4 @@
-import { ID, Coordinate } from 'server/game';
+import { ID, Coordinate } from '~/server/game';
 
 export type Vault = {
   id: ID;

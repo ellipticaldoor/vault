@@ -1,16 +1,16 @@
-import { ID } from 'server/game';
+import { ID } from '~/server/game';
 import {
   Resource,
   ResourceUpdate,
   updateResource as updateResourceHelper,
-} from 'server/resources';
+} from '~/server/resources';
 import {
   updateBy,
   findOneState,
   setArrayState,
   addToArrayState,
-} from 'server/state';
-import { ERROR } from 'server/language';
+} from '~/server/state';
+import { ERROR } from '~/server/language';
 
 export const createResources = () => {
   const resources: Resource[] = [];

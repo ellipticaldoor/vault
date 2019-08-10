@@ -1,11 +1,11 @@
-import { Mission, MissionKind, MISSION_STATS } from 'server/missions';
-import { ID } from 'server/game/types';
-import { ResourceUpdate, hasEnoughResources } from 'server/resources';
-import { ticksToTravel } from 'server/ticks';
-import { simulateCombat, applyCombatSimulation } from 'server/combats';
-import { GameState } from 'server/state';
-import { createId } from 'server/helpers';
-import { ERROR } from 'server/language';
+import { Mission, MissionKind, MISSION_STATS } from '~/server/missions';
+import { ID } from '~/server/game/types';
+import { ResourceUpdate, hasEnoughResources } from '~/server/resources';
+import { ticksToTravel } from '~/server/ticks';
+import { simulateCombat, applyCombatSimulation } from '~/server/combats';
+import { GameState } from '~/server/state';
+import { createId } from '~/server/helpers';
+import { ERROR } from '~/server/language';
 
 type CreateMissionArgs = {
   kind: MissionKind;

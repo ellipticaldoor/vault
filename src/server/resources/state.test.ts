@@ -1,6 +1,6 @@
-import { createGameState } from 'server/state';
+import { createGameState } from '~/server/state';
 import cases from 'jest-in-case';
-import { createVault } from 'server/vaults';
+import { createVault } from '~/server/vaults';
 
 cases(
   'updateResource',

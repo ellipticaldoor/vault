@@ -3,8 +3,8 @@ import {
   TextLabel,
   InputContainer,
   DEFAULT_INPUT_WIDTH,
-} from 'client/components';
-import { SizeType, sizes, border, colors, outline } from 'client/styles';
+} from '~/client/components';
+import { SizeType, sizes, border, colors, outline } from '~/client/styles';
 import styled from 'styled-components';
 
 export type SelectProps = {

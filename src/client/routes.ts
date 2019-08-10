@@ -1,10 +1,10 @@
 import React from 'react';
-import { Home } from 'client/screens/Home';
-import { Missions } from 'client/screens/Missions';
-import { Atlas } from 'client/screens/Atlas';
-import { Login } from 'client/screens/Auth/Login';
-import { Signup } from 'client/screens/Auth/Signup';
-import { NewMission } from 'client/screens/NewMission';
+import { Home } from '~/client/screens/Home';
+import { Missions } from '~/client/screens/Missions';
+import { Atlas } from '~/client/screens/Atlas';
+import { Login } from '~/client/screens/Auth/Login';
+import { Signup } from '~/client/screens/Auth/Signup';
+import { NewMission } from '~/client/screens/NewMission';
 
 export type Route = {
   path: string;

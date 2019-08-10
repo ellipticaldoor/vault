@@ -1,4 +1,4 @@
-import { ID } from 'server/game/types';
+import { ID } from '~/server/game/types';
 
 export type Resource = {
   id: ID;

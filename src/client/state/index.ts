@@ -1,7 +1,7 @@
 import createUseContext from 'constate';
 import { useState, useEffect } from 'react';
-import { GAMESTATE_REFRESH_RATE } from 'server/game/constants';
-import { Vault } from 'api';
+import { GAMESTATE_REFRESH_RATE } from '~/server/game/constants';
+import { Vault } from '~/api';
 
 export type GameState = {
   ticks: number;
