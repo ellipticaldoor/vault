@@ -37,8 +37,8 @@ const StyledButton = styled.button<ButtonProps>`
   background: ${colors.primary};
   color: ${colors.background};
 
-  appearance: none;
   cursor: pointer;
+  appearance: none;
   text-align: center;
   text-decoration: none;
   user-select: none;

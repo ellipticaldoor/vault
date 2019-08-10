@@ -47,6 +47,7 @@ const SELECT_ICON_POSITION = 'right 0.35rem center / 0.4rem 0.5rem';
 const selectBackground = `${colors.background} url("${SELECT_ICON_SVG}") no-repeat ${SELECT_ICON_POSITION}`;
 
 const StyledSelect = styled.select<{ width: string }>`
+  cursor: pointer;
   appearance: none;
   vertical-align: middle;
   padding: 0px ${sizes.sm};

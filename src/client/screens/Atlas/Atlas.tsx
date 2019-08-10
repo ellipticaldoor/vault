@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import styled from 'styled-components';
-import { getAtlasSize } from 'client/screens/Atlas/helpers';
-import { drawAtlas } from 'client/screens/Atlas/draw';
+import { getBounds, getRelativeCoordinate } from 'client/screens/Atlas/helpers';
+import { drawAtlas, getAtlasSize } from 'client/screens/Atlas/drawAtlas';
 import { CanvasContext, scaleCanvas } from 'client/helpers';
 import { Vault } from 'api/graphql';
 import { createId } from 'server/helpers';
@@ -16,7 +16,6 @@ const initialVaults = [
 ] as Vault[];
 
 export const Atlas: React.FC = () => {
-  const [vaults] = useState<Vault[]>(initialVaults);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const atlasSize = useMemo(() => getAtlasSize(), []);
   const [ctx, setCtx] = useState<CanvasContext | null>(null);
@@ -29,18 +28,29 @@ export const Atlas: React.FC = () => {
   useEffect(() => {
     if (!canvasRef.current || !ctx) return;
     scaleCanvas(canvasRef.current, ctx, atlasSize);
-    drawAtlas(ctx, atlasSize, vaults);
-  }, [ctx, atlasSize, vaults]);
+    drawAtlas(ctx, atlasSize);
+  }, [ctx, atlasSize]);
+
+  const [vaults] = useState<Vault[]>(initialVaults);
+  const atlasBounds = useMemo(() => getBounds(vaults), [vaults]);
+
+  const VaultButtons = useMemo(() => {
+    return vaults.map((vault, index) => {
+      const { x, y } = getRelativeCoordinate(atlasSize, atlasBounds, vault);
+      return <VaultButton key={`vault-button${index}`} x={x} y={y} />;
+    });
+  }, [vaults, atlasBounds, atlasSize]);
 
   return (
     <AtlasContainer>
       <Canvas ref={canvasRef} />
-      <VaultButton x={100} y={100} />
+      {VaultButtons}
     </AtlasContainer>
   );
 };
 
 const AtlasContainer = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
 `;

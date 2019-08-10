@@ -1,4 +1,4 @@
-import { getBounds, getRelativeCoordinate } from 'client/screens/Atlas/draw';
+import { getBounds, getRelativeCoordinate } from 'client/screens/Atlas';
 
 test('getBounds', () => {
   expect(
