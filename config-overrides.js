@@ -11,9 +11,30 @@ paths.appTypeDeclarations = path.resolve(
 );
 paths.appTsConfig = path.resolve(__dirname, `tsconfig.cra.json`);
 
-module.exports = function override(config) {
-  // Disable eslint checking
-  config.module.rules.splice(1, 1);
+const disableTsConfigCheck = () => {
+  const verifyTypeScriptSetupPath = `${scriptVersion}/scripts/utils/verifyTypeScriptSetup`;
+  // Module has to be required first so the cache can be overrided
+  require(verifyTypeScriptSetupPath);
 
-  return config;
+  // Disable tsconfig validation to customize "baseUrl" and "paths"
+  require.cache[require.resolve(verifyTypeScriptSetupPath)].exports = () => {};
+};
+
+disableTsConfigCheck();
+
+module.exports = {
+  webpack: (config) => {
+    config.module.rules.splice(1, 1);
+
+    return {
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          '~': path.resolve(__dirname, 'src'),
+        },
+      },
+    };
+  },
 };

@@ -7,6 +7,7 @@
 - remove apollo boost and make custom client
 - generate vaults and missions for development
 - hide debug schema on production
+- run server in production mode
 
 # DB
 
