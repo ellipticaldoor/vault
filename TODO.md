@@ -4,9 +4,6 @@
 
 # Dev
 
-- improve username and password validation error
-- disable cra typescript checking
-- remove apollo boost and make custom client
 - generate vaults and missions for development
 - disable debug schema/resolvers on production
 - run server in production mode
