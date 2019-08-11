@@ -21,9 +21,13 @@ export const makeTimestampMessage = (
   return color ? color(timestampMessage) : timestampMessage;
 };
 
-export const log = (message: string, color?: (text: string) => string) => {
+type LogColor = 'red' | 'green' | 'blue' | 'cyan';
+
+export const log = (message: string, color?: LogColor) => {
+  const selectedColor = color ? chalk[color] : undefined;
+
   // eslint-disable-next-line no-console
-  console.info(makeTimestampMessage(message, color));
+  console.info(makeTimestampMessage(message, selectedColor));
 };
 
 export const logError = (error: any): void =>

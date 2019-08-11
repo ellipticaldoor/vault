@@ -10,8 +10,8 @@ async function main() {
   const server = createServer(gameState);
 
   server.listen({ port: API_PORT }, () => {
-    log(startMessage);
+    log(startMessage, 'green');
   });
 }
 
-main().catch((e) => logError(e));
+main().catch((error) => logError(error));
