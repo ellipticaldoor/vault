@@ -1,12 +1,7 @@
 import createUseContext from 'constate';
 import { useState, useEffect } from 'react';
 import { GAMESTATE_REFRESH_RATE } from '~/server/game/constants';
-import { Vault } from '~/api';
-
-export type GameState = {
-  ticks: number;
-  myVault: Vault;
-};
+import { GameState } from '~/client/state/types';
 
 export const initialGameState: GameState = {
   ticks: 0,
@@ -14,10 +9,20 @@ export const initialGameState: GameState = {
     id: '',
     x: 0,
     y: 0,
-    facility: { id: '', ironMine: 0 },
     missions: [],
-    resource: { id: '', dwellers: 0, iron: 0 },
-    user: {} as any,
+    facilities: {
+      id: '',
+      ironMine: 0,
+    },
+    resources: {
+      id: '',
+      dwellers: 0,
+      iron: 0,
+    },
+    user: {
+      id: '',
+      username: '',
+    },
   },
 };
 

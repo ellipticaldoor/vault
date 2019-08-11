@@ -49,14 +49,14 @@ export const NewMission: React.FC = () => {
           value={dwellers}
           onChange={setDwellers}
           min={0}
-          max={myVault.resource.dwellers}
+          max={myVault.resources.dwellers}
         />
         <InputNumber
           label="iron"
           value={iron}
           onChange={setIron}
           min={0}
-          max={myVault.resource.iron}
+          max={myVault.resources.iron}
         />
       </InputGroup>
 

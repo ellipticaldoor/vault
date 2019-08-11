@@ -5,10 +5,10 @@ export default gql`
     id: ID!
     x: Int!
     y: Int!
-    resource: Resource!
-    facility: Facility!
+    missions: [Mission]
+    resources: Resources
+    facilities: Facilities
     user: User
-    missions: [Mission!]!
   }
 
   type Query {

@@ -10,7 +10,7 @@ export default gql`
     kind: MissionKind!
     from: Vault!
     to: Vault!
-    resource: Resource!
+    resources: Resources
     createdAtTick: Int!
     arrivalTick: Int!
     comebackTick: Int!
@@ -20,10 +20,6 @@ export default gql`
     toId: ID!
     kind: MissionKind!
     initialResources: CreateResourceInput!
-  }
-
-  type Query {
-    missions: [Mission!]!
   }
 
   type Mutation {

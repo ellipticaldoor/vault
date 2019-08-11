@@ -8,9 +8,8 @@ export const StatePanel: React.FC = () => {
   const { state } = useGameStateContext();
 
   const stateInfo = [
-    // { title: 'ticks', amount: state.ticks },
-    { title: 'dwellers', amount: state.myVault.resource.dwellers },
-    { title: 'iron', amount: state.myVault.resource.iron },
+    { title: 'dwellers', amount: state.myVault.resources.dwellers },
+    { title: 'iron', amount: state.myVault.resources.iron },
   ];
 
   return (

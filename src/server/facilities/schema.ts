@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  type Facility {
+  type Facilities {
     id: ID!
     ironMine: Int!
   }
@@ -15,6 +15,6 @@ export default gql`
   }
 
   type Mutation {
-    upgradeMyFacilityLevel(data: UpgradeMyFacilityLevelInput!): Facility!
+    upgradeMyFacilityLevel(data: UpgradeMyFacilityLevelInput!): Facilities!
   }
 `;

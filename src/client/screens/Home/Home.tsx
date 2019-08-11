@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  ScreenContainer,
-  Text,
-  TextTitle,
-  ListMissions,
-} from '~/client/components';
+import { ScreenContainer, Text, TextTitle } from '~/client/components';
 import useGameStateContext from '~/client/state';
 
 export const Home: React.FC = () => {
@@ -19,8 +14,6 @@ export const Home: React.FC = () => {
         Coordinate:
         {` x: ${myVault.x}, y: ${myVault.y}`}
       </Text>
-      <Text>My missions:</Text>
-      <ListMissions missions={myVault.missions} />
     </ScreenContainer>
   );
 };

@@ -4,9 +4,9 @@ export default gql`
   type GameState {
     id: Int!
     ticks: Int!
-    resources: [Resource!]!
+    resources: [Resources!]!
     vaults: [Vault!]!
-    facilities: [Facility!]!
+    facilities: [Facilities!]!
     missions: [Mission!]!
   }
 

@@ -28,8 +28,8 @@ export type CreateResourceInput = {
   iron: Scalars['Int'];
 };
 
-export type Facility = {
-  __typename?: 'Facility';
+export type Facilities = {
+  __typename?: 'Facilities';
   id: Scalars['ID'];
   ironMine: Scalars['Int'];
 };
@@ -42,9 +42,9 @@ export type GameState = {
   __typename?: 'GameState';
   id: Scalars['Int'];
   ticks: Scalars['Int'];
-  resources: Array<Resource>;
+  resources: Array<Resources>;
   vaults: Array<Vault>;
-  facilities: Array<Facility>;
+  facilities: Array<Facilities>;
   missions: Array<Mission>;
 };
 
@@ -59,7 +59,7 @@ export type Mission = {
   kind: MissionKind;
   from: Vault;
   to: Vault;
-  resource: Resource;
+  resources: Maybe<Resources>;
   createdAtTick: Scalars['Int'];
   arrivalTick: Scalars['Int'];
   comebackTick: Scalars['Int'];
@@ -74,7 +74,7 @@ export type Mutation = {
   login: AuthPayload;
   signup: AuthPayload;
   resetGameState: GameState;
-  upgradeMyFacilityLevel: Facility;
+  upgradeMyFacilityLevel: Facilities;
   createMission: Mission;
 };
 
@@ -97,13 +97,12 @@ export type MutationCreateMissionArgs = {
 export type Query = {
   __typename?: 'Query';
   gameState: GameState;
-  missions: Array<Mission>;
   my: User;
   vaults: Array<Vault>;
 };
 
-export type Resource = {
-  __typename?: 'Resource';
+export type Resources = {
+  __typename?: 'Resources';
   id: Scalars['ID'];
   dwellers: Scalars['Int'];
   iron: Scalars['Int'];
@@ -130,10 +129,10 @@ export type Vault = {
   id: Scalars['ID'];
   x: Scalars['Int'];
   y: Scalars['Int'];
-  resource: Resource;
-  facility: Facility;
+  missions: Maybe<Array<Maybe<Mission>>>;
+  resources: Maybe<Resources>;
+  facilities: Maybe<Facilities>;
   user: Maybe<User>;
-  missions: Array<Mission>;
 };
 
 export type ResolverTypeWrapper<T> = Promise<DeepPartial<T>> | DeepPartial<T>;
@@ -208,14 +207,14 @@ export type ResolversTypes = {
   Query: ResolverTypeWrapper<{}>;
   GameState: ResolverTypeWrapper<GameState>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
-  Resource: ResolverTypeWrapper<Resource>;
+  Resources: ResolverTypeWrapper<Resources>;
   ID: ResolverTypeWrapper<Scalars['ID']>;
   Vault: ResolverTypeWrapper<Vault>;
-  Facility: ResolverTypeWrapper<Facility>;
-  User: ResolverTypeWrapper<User>;
-  String: ResolverTypeWrapper<Scalars['String']>;
   Mission: ResolverTypeWrapper<Mission>;
   MissionKind: MissionKind;
+  Facilities: ResolverTypeWrapper<Facilities>;
+  User: ResolverTypeWrapper<User>;
+  String: ResolverTypeWrapper<Scalars['String']>;
   Mutation: ResolverTypeWrapper<{}>;
   LoginInput: LoginInput;
   AuthPayload: ResolverTypeWrapper<AuthPayload>;
@@ -232,14 +231,14 @@ export type ResolversParentTypes = {
   Query: {};
   GameState: GameState;
   Int: Scalars['Int'];
-  Resource: Resource;
+  Resources: Resources;
   ID: Scalars['ID'];
   Vault: Vault;
-  Facility: Facility;
-  User: User;
-  String: Scalars['String'];
   Mission: Mission;
   MissionKind: MissionKind;
+  Facilities: Facilities;
+  User: User;
+  String: Scalars['String'];
   Mutation: {};
   LoginInput: LoginInput;
   AuthPayload: AuthPayload;
@@ -259,9 +258,9 @@ export type AuthPayloadResolvers<
   token: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
-export type FacilityResolvers<
+export type FacilitiesResolvers<
   ContextType = ApolloContext,
-  ParentType extends ResolversParentTypes['Facility'] = ResolversParentTypes['Facility']
+  ParentType extends ResolversParentTypes['Facilities'] = ResolversParentTypes['Facilities']
 > = {
   id: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   ironMine: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
@@ -274,13 +273,13 @@ export type GameStateResolvers<
   id: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   ticks: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   resources: Resolver<
-    Array<ResolversTypes['Resource']>,
+    Array<ResolversTypes['Resources']>,
     ParentType,
     ContextType
   >;
   vaults: Resolver<Array<ResolversTypes['Vault']>, ParentType, ContextType>;
   facilities: Resolver<
-    Array<ResolversTypes['Facility']>,
+    Array<ResolversTypes['Facilities']>,
     ParentType,
     ContextType
   >;
@@ -295,7 +294,11 @@ export type MissionResolvers<
   kind: Resolver<ResolversTypes['MissionKind'], ParentType, ContextType>;
   from: Resolver<ResolversTypes['Vault'], ParentType, ContextType>;
   to: Resolver<ResolversTypes['Vault'], ParentType, ContextType>;
-  resource: Resolver<ResolversTypes['Resource'], ParentType, ContextType>;
+  resources: Resolver<
+    Maybe<ResolversTypes['Resources']>,
+    ParentType,
+    ContextType
+  >;
   createdAtTick: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   arrivalTick: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   comebackTick: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
@@ -323,7 +326,7 @@ export type MutationResolvers<
     ContextType
   >;
   upgradeMyFacilityLevel: Resolver<
-    ResolversTypes['Facility'],
+    ResolversTypes['Facilities'],
     ParentType,
     ContextType,
     MutationUpgradeMyFacilityLevelArgs
@@ -341,14 +344,13 @@ export type QueryResolvers<
   ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']
 > = {
   gameState: Resolver<ResolversTypes['GameState'], ParentType, ContextType>;
-  missions: Resolver<Array<ResolversTypes['Mission']>, ParentType, ContextType>;
   my: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   vaults: Resolver<Array<ResolversTypes['Vault']>, ParentType, ContextType>;
 };
 
-export type ResourceResolvers<
+export type ResourcesResolvers<
   ContextType = ApolloContext,
-  ParentType extends ResolversParentTypes['Resource'] = ResolversParentTypes['Resource']
+  ParentType extends ResolversParentTypes['Resources'] = ResolversParentTypes['Resources']
 > = {
   id: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   dwellers: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
@@ -371,20 +373,32 @@ export type VaultResolvers<
   id: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   x: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   y: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  resource: Resolver<ResolversTypes['Resource'], ParentType, ContextType>;
-  facility: Resolver<ResolversTypes['Facility'], ParentType, ContextType>;
+  missions: Resolver<
+    Maybe<Array<Maybe<ResolversTypes['Mission']>>>,
+    ParentType,
+    ContextType
+  >;
+  resources: Resolver<
+    Maybe<ResolversTypes['Resources']>,
+    ParentType,
+    ContextType
+  >;
+  facilities: Resolver<
+    Maybe<ResolversTypes['Facilities']>,
+    ParentType,
+    ContextType
+  >;
   user: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
-  missions: Resolver<Array<ResolversTypes['Mission']>, ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = ApolloContext> = {
   AuthPayload: AuthPayloadResolvers<ContextType>;
-  Facility: FacilityResolvers<ContextType>;
+  Facilities: FacilitiesResolvers<ContextType>;
   GameState: GameStateResolvers<ContextType>;
   Mission: MissionResolvers<ContextType>;
   Mutation: MutationResolvers<ContextType>;
   Query: QueryResolvers<ContextType>;
-  Resource: ResourceResolvers<ContextType>;
+  Resources: ResourcesResolvers<ContextType>;
   User: UserResolvers<ContextType>;
   Vault: VaultResolvers<ContextType>;
 };
