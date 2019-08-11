@@ -4,7 +4,7 @@ import { createVault } from '~/server/vaults';
 import { GameState } from '~/server/state';
 import { hashPassword } from '~/server/auth';
 import { ERROR } from '~/server/language';
-import Joi from 'joi';
+import Joi from '@hapi/joi';
 
 export const validateUsername = (username: string) => {
   Joi.assert(

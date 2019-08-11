@@ -8,6 +8,7 @@ import { mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 import { GameState } from '~/server/state';
 import { prepareContext, formatError } from '~/server/apollo';
 import { SERVER_ROOT_DIR } from '~/server/constants';
+import { NODE_ENV } from '~/server/env';
 
 const loadSchemas = () =>
   glob.sync(`${SERVER_ROOT_DIR}/**/schema.{js,ts}`).map((module) => {
@@ -32,6 +33,8 @@ const createApolloServer = (gameState: GameState) => {
     schema,
     context,
     formatError,
+    debug: NODE_ENV !== 'production',
+    introspection: NODE_ENV !== 'production',
   });
 
   return apollo;

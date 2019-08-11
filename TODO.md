@@ -4,12 +4,11 @@
 
 # Dev
 
-- colorize apollo server error and improve readability
-- disable cra typescript checking
 - improve username and password validation error
+- disable cra typescript checking
 - remove apollo boost and make custom client
 - generate vaults and missions for development
-- hide debug schema on production
+- disable debug schema/resolvers on production
 - run server in production mode
 
 # DB
