@@ -1,11 +1,7 @@
-import graphql from 'graphql';
+import { GraphQLError, GraphQLFormattedError } from 'graphql';
 import { logError } from '~/server/helpers';
 
-export const formatError = (
-  error: graphql.GraphQLError,
-): graphql.GraphQLFormattedError => {
-  // eslint-disable-next-line no-console
+export const formatError = (error: GraphQLError): GraphQLFormattedError => {
   logError(error);
-
-  return graphql.formatError(error);
+  return error;
 };

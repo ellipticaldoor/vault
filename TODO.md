@@ -35,6 +35,7 @@
 - add error message prop to every input
 - better select right icon
 - handle auth state on screens / routes / state
+- error handling, maybe use an error boundary?
 - settings screen
   -dark theme
   -update password
