@@ -13,21 +13,19 @@ export const getCurrentTimestamp = (): string =>
     .replace('T', ' ')
     .substr(0, 19);
 
-export const makeTimestampMessage = (
-  message: string,
-  color?: (text: string) => string,
-): string => {
-  const timestampMessage = `[${getCurrentTimestamp()}] ${message}`;
-  return color ? color(timestampMessage) : timestampMessage;
-};
-
 type LogColor = 'red' | 'green' | 'blue' | 'cyan';
 
-export const log = (message: string, color?: LogColor) => {
-  const selectedColor = color ? chalk[color] : undefined;
+export const makeTimestampMessage = (
+  message: string,
+  color?: LogColor,
+): string => {
+  const timestampMessage = `[${getCurrentTimestamp()}] ${message}`;
+  return color ? chalk[color](timestampMessage) : timestampMessage;
+};
 
+export const log = (message: string, color?: LogColor) => {
   // eslint-disable-next-line no-console
-  console.info(makeTimestampMessage(message, selectedColor));
+  console.info(makeTimestampMessage(message, color));
 };
 
 export const logError = (error: any): void =>
@@ -35,6 +33,5 @@ export const logError = (error: any): void =>
   console.error(
     makeTimestampMessage(
       `${(error.originalError && error.originalError.stack) || error.stack}`,
-      chalk.redBright,
     ),
   );
