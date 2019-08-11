@@ -8,6 +8,7 @@
 - generate vaults and missions for development
 - delete debug schema/resolvers of disable on production if useful
 - run server in production mode
+- disable hot reload on cra
 
 # DB
 
