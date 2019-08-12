@@ -6,7 +6,7 @@
     "test": "dotenv -e .env.development -- react-app-rewired test --runInBand",
     "client": "react-app-rewired start",
     "client:build": "react-app-rewired build",
-    "server": "NODE_PATH=src dotenv -e .env.development -- babel-watch src/server/index.ts --extensions \".ts\"",
+    "server": "NODE_PATH=src dotenv -e .env.development -- babel-watch -m ' ' src/server/index.ts --extensions \".ts\"",
     "type-check": "tsc --noEmit --noUnusedLocals",
     "type-check:watch": "yarn type-check --watch",
     "lint": "eslint src --ext .ts,.tsx",

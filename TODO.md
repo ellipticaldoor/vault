@@ -16,6 +16,7 @@
 
 # Backend
 
+- implement schema resolvers
 - Don't allow to see private info from another players
 - real time missions update
 - to have multiple vaults
