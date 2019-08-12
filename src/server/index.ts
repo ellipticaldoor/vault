@@ -10,7 +10,7 @@ async function main() {
   const server = createServer(gameState);
 
   server.listen({ port: API_PORT }, () => {
-    log(startMessage, 'green');
+    log(startMessage, 'cyan');
   });
 }
 

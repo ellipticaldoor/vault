@@ -6,7 +6,11 @@ import { ApolloServer } from 'apollo-server-express';
 import { makeExecutableSchema } from 'graphql-tools';
 import { mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 import { GameState } from '~/server/state';
-import { prepareContext, formatError } from '~/server/apollo';
+import {
+  prepareContext,
+  formatError,
+  PLAYGROUND_CONFIG,
+} from '~/server/apollo';
 import { SERVER_ROOT_DIR } from '~/server/constants';
 import { NODE_ENV } from '~/server/env';
 
@@ -35,6 +39,7 @@ const createApolloServer = (gameState: GameState) => {
     formatError,
     debug: NODE_ENV !== 'production',
     introspection: NODE_ENV !== 'production',
+    playground: NODE_ENV !== 'production' ? PLAYGROUND_CONFIG : false,
   });
 
   return apollo;

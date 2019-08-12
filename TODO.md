@@ -1,14 +1,9 @@
-# Other
-
-- make screenshots default to jpg on macos
-
 # Dev
 
-- add playground only on development mode
-- generate vaults and missions for development
-- delete debug schema/resolvers of disable on production if useful
 - run server in production mode
+- generate vaults and missions for development
 - disable hot reload on cra
+- delete (or disable on production if useful) the schema/resolvers for debug
 
 # DB
 
@@ -28,26 +23,26 @@
 
 # UI
 
-- display missions
-- if missions screen is empty display a message pointing to new mission
-- display facilities in home and resources
-- complete empty screen
 - create <a> link component instead of global one
+- underline current screen on nav
+- error message component
+- better select right icon
+- display missions
+- error handling, maybe use an error boundary?
+- client side input validation
+- if missions screen is empty display a message pointing to new mission
+- complete empty screens
+- display facilities in home and resources
 - responsive canvas
 - responsive UI
-- client side input validation
-- error message component
 - eslint accesibility and a11y
 - don't create sourcemaps on build
 - client side prediction of resources and ticks
-- underline current screen on nav
 - display title of the screen on chrome tab
 - display vaults info on atlas
 - display modal on vault click to show info and attack
 - add error message prop to every input
-- better select right icon
 - handle auth state on screens / routes / state
-- error handling, maybe use an error boundary?
 - mark user's vault on the atlas
 - settings screen
   - dark theme
