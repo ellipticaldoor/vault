@@ -1,5 +1,6 @@
 # Dev
 
+- add ? for save key access
 - run server in production mode
 - generate vaults and missions for development
 - disable hot reload on cra
@@ -29,6 +30,7 @@
 - error message component
 - better select right icon
 - display missions
+- better alternative for randmon classes
 - error handling, maybe use an error boundary?
 - client side input validation
 - if missions screen is empty display a message pointing to new mission

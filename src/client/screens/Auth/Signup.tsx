@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import {
   ScreenContainer,
   TextTitle,
-  Text,
   TextInput,
   Button,
+  Message,
 } from '~/client/components';
 import { useMutation } from '@apollo/react-hooks';
 import { SIGNUP, SignupMutation } from '~/api';
@@ -34,8 +34,16 @@ export const Signup: React.FC = () => {
           signup();
         }}
       />
-      <Text>error - {JSON.stringify(error)}</Text>
-      <Text>data - {JSON.stringify(data)}</Text>
+      <Message
+        kind="info"
+        label="Some info"
+        message="Something happened and this is just some info"
+      />
+      <Message
+        kind="error"
+        label="Some error"
+        message="Something happened and this is just some error"
+      />
     </ScreenContainer>
   );
 };

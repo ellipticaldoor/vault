@@ -52,10 +52,12 @@ export const palette = {
 
 export const colors = {
   background: palette.white,
-  font: palette.blackRock,
+  text: palette.blackRock,
   link: palette.bondiBlue,
   linkVisited: palette.purpleHeart,
   base: palette.linkWater,
   lightBase: palette.mintTulip,
   primary: palette.meteorite,
+  secondary: palette.bermudaGray,
+  error: palette.brinkPink,
 };

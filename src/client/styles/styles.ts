@@ -61,7 +61,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background: ${colors.background};
-    color: ${colors.font};
+    color: ${colors.text};
     font-family: ${fonts.base};
     font-size: ${sizes.md};
     text-rendering: optimizeLegibility;

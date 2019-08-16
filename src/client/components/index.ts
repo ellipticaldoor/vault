@@ -12,3 +12,4 @@ export * from './InputGroup';
 export * from './ScreenContainer';
 export * from './TextLabel';
 export * from './InputContainer';
+export * from './Message';
