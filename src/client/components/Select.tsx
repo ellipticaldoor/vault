@@ -2,6 +2,7 @@ import React from 'react';
 import {
   TextLabel,
   InputContainer,
+  StyledInput,
   DEFAULT_INPUT_WIDTH,
 } from '~/client/components';
 import { SizeType, sizes, border, colors, outline } from '~/client/styles';
@@ -24,17 +25,19 @@ export const Select: React.FC<SelectProps> = ({
 }) => {
   return (
     <InputContainer>
-      <TextLabel>{label}</TextLabel>
-      <StyledSelect
-        width={width}
-        onChange={(event) => {
-          onChange(event.target.value);
-        }}
-      >
-        {options.map((option, index) => (
-          <option key={index}>{option}</option>
-        ))}
-      </StyledSelect>
+      <StyledInput>
+        <TextLabel>{label}</TextLabel>
+        <StyledSelect
+          width={width}
+          onChange={(event) => {
+            onChange(event.target.value);
+          }}
+        >
+          {options.map((option, index) => (
+            <option key={index}>{option}</option>
+          ))}
+        </StyledSelect>
+      </StyledInput>
     </InputContainer>
   );
 };

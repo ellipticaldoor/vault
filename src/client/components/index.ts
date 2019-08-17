@@ -4,6 +4,7 @@ export * from './Button';
 export * from './Text';
 export * from './TextTitle';
 export * from './Select';
+export * from './StyledInput';
 export * from './Input';
 export * from './InputText';
 export * from './InputNumber';

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   ScreenContainer,
   TextTitle,
-  TextInput,
+  InputText,
   Button,
   ErrorMessage,
 } from '~/client/components';
@@ -28,8 +28,13 @@ export const Signup: React.FC = () => {
   return (
     <ScreenContainer>
       <TextTitle>Signup</TextTitle>
-      <TextInput label="username" value={username} onChange={setUsername} />
-      <TextInput
+      <InputText
+        label="username"
+        value={username}
+        onChange={setUsername}
+        errorMessage="username is required"
+      />
+      <InputText
         label="password"
         value={password}
         onChange={setPassword}

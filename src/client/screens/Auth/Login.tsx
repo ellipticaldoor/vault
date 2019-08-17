@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import {
   ScreenContainer,
   TextTitle,
-  TextInput,
+  InputText,
   Button,
 } from '~/client/components';
 
 export const Login: React.FC = () => {
-  const [username, setUsername] = useState('ellipticaldoor');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   return (
     <ScreenContainer>
       <TextTitle>{'Welcome back :)'}</TextTitle>
-      <TextInput label="username" value={username} onChange={setUsername} />
-      <TextInput label="password" value={password} onChange={setPassword} />
+      <InputText label="username" value={username} onChange={setUsername} />
+      <InputText label="password" value={password} onChange={setPassword} />
       <Button title="Login" onClick={() => {}} />
     </ScreenContainer>
   );

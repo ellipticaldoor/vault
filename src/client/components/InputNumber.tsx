@@ -1,5 +1,10 @@
 import React from 'react';
-import { TextLabel, InputContainer, Input } from '~/client/components';
+import {
+  TextLabel,
+  InputContainer,
+  Input,
+  StyledInput,
+} from '~/client/components';
 import { Size } from '~/client/styles';
 
 export type InputNumberProps = {
@@ -24,16 +29,18 @@ export const InputNumber: React.FC<InputNumberProps> = ({
 }) => {
   return (
     <InputContainer margin={margin} padding={padding}>
-      <TextLabel>{label}</TextLabel>
-      <Input
-        {...props}
-        type="number"
-        onChange={(event) => {
-          const newValue = parseInt(event.target.value, 10);
-          onChange(newValue);
-        }}
-        width={inputWidth}
-      />
+      <StyledInput>
+        <TextLabel>{label}</TextLabel>
+        <Input
+          {...props}
+          type="number"
+          onChange={(event) => {
+            const newValue = parseInt(event.target.value, 10);
+            onChange(newValue);
+          }}
+          width={inputWidth}
+        />
+      </StyledInput>
     </InputContainer>
   );
 };

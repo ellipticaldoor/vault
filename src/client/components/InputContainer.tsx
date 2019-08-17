@@ -13,7 +13,4 @@ export const InputContainer = styled.div<InputContainerProps>`
 
   background: ${colors.base};
   border-radius: ${border.radius};
-
-  display: flex;
-  align-items: center;
 `;
