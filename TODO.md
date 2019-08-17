@@ -22,16 +22,16 @@
 - real time missions update
 - to have multiple vaults
 - Add a rank system based in points
+- Better validation error messages
+- instead of '"value" is not allowed to be empty' should be '"username" is not allowed to be empty'
 
 # UI
 
 - create <a> link component instead of global one
 - underline current screen on nav
-- error message component
 - better select right icon
 - display missions
 - better alternative for randmon classes
-- error handling, maybe use an error boundary?
 - client side input validation
 - if missions screen is empty display a message pointing to new mission
 - complete empty screens

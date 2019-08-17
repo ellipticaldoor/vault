@@ -4,7 +4,7 @@ import {
   TextTitle,
   TextInput,
   Button,
-  Message,
+  ErrorMessage,
 } from '~/client/components';
 import { useMutation } from '@apollo/react-hooks';
 import { SIGNUP, SignupMutation } from '~/api';
@@ -12,11 +12,18 @@ import { SIGNUP, SignupMutation } from '~/api';
 export const Signup: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [signup, { error, data }] = useMutation<SignupMutation>(SIGNUP, {
+  const [signup, { data, error }] = useMutation<SignupMutation>(SIGNUP, {
     variables: {
       data: { username, password },
     },
   });
+
+  const submit = async () => {
+    try {
+      await signup();
+    } catch (e) {}
+    // TODO: handle data
+  };
 
   return (
     <ScreenContainer>
@@ -28,22 +35,8 @@ export const Signup: React.FC = () => {
         onChange={setPassword}
         password
       />
-      <Button
-        title="Create new account"
-        onClick={() => {
-          signup();
-        }}
-      />
-      <Message
-        kind="info"
-        label="Some info"
-        message="Something happened and this is just some info"
-      />
-      <Message
-        kind="error"
-        label="Some error"
-        message="Something happened and this is just some error"
-      />
+      <Button title="Create new account" onClick={() => submit()} />
+      <ErrorMessage label="Signup error" message={error} />
     </ScreenContainer>
   );
 };
