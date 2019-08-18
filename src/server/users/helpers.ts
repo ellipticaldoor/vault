@@ -4,31 +4,9 @@ import { createVault } from '~/server/vaults';
 import { GameState } from '~/server/state';
 import { hashPassword } from '~/server/auth';
 import { ERROR } from '~/server/language';
-import Joi from '@hapi/joi';
+import { isUsername, isPassword } from '~/validation';
 
-export const validateUsername = (username: string) => {
-  Joi.assert(
-    username,
-    Joi.string()
-      .strict()
-      .min(3)
-      .max(30)
-      .token()
-      .lowercase(),
-  );
-};
-
-export const validatePassword = (password: string) => {
-  Joi.assert(
-    password,
-    Joi.string()
-      .strict()
-      .min(8)
-      .max(100),
-  );
-};
-
-export const validateUsernameIsAvailable = async (
+export const isUsernameIsAvailable = async (
   photon: Photon,
   username: string,
 ) => {
@@ -51,9 +29,9 @@ export const createUser = async (
   gameState: GameState,
   { username, password, hasVault = true }: CreateUserArgs,
 ): Promise<User> => {
-  validateUsername(username);
-  validatePassword(password);
-  await validateUsernameIsAvailable(photon, username);
+  isUsername(username);
+  isPassword(password);
+  await isUsernameIsAvailable(photon, username);
 
   const user = await photon.users.create({
     data: {

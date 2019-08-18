@@ -27,6 +27,7 @@
 
 # UI
 
+- debounce submit
 - create <a> link component instead of global one
 - underline current screen on nav
 - better select right icon

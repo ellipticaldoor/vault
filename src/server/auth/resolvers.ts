@@ -4,7 +4,8 @@ import { prop } from 'remeda';
 import { signToken } from '~/server/auth';
 import { AuthContext } from '~/server/apollo';
 import { compare } from 'bcrypt';
-import { validateUsername, validatePassword, createUser } from '~/server/users';
+import { isUsername, isPassword } from '~/validation';
+import { createUser } from '~/server/users';
 
 const AuthPayload: AuthPayloadResolvers = {
   token: prop('token'),
@@ -13,8 +14,8 @@ const AuthPayload: AuthPayloadResolvers = {
 
 const Mutation: Partial<MutationResolvers> = {
   login: async (parent, { data: { username, password } }, context) => {
-    validateUsername(username);
-    validatePassword(password);
+    isUsername(username);
+    isPassword(password);
 
     const user = await context.photon.users.findOne({ where: { username } });
 
