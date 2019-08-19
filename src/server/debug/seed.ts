@@ -1,4 +1,4 @@
-import Photon, { UserDelegate } from '~/server/photon';
+import Photon, { UserDelegate } from '~/photon';
 import {
   GameState,
   Table,

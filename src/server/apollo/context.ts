@@ -1,4 +1,4 @@
-import Photon from '~/server/photon';
+import Photon from '~/photon';
 import { GameState } from '~/server/state';
 import { ExpressContext, ApolloContext } from '~/server/apollo';
 

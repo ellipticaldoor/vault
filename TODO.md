@@ -17,6 +17,7 @@
 
 # Backend
 
+- change joi validation for validator.js
 - implement schema resolvers
 - Don't allow to see private info from another players
 - real time missions update
@@ -30,7 +31,7 @@
 - debounce submit
 - create <a> link component instead of global one
 - underline current screen on nav
-- better select right icon
+- better SelectInput right svg icon
 - display missions
 - better alternative for randmon classes
 - client side input validation

@@ -1,4 +1,4 @@
-import Photon from '~/server/photon';
+import Photon from '~/photon';
 import { Resource } from '~/server/resources';
 import { Vault } from '~/server/vaults';
 import { Mission } from '~/server/missions';

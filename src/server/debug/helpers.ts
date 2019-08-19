@@ -1,4 +1,4 @@
-import Photon from '~/server/photon';
+import Photon from '~/photon';
 import { NODE_ENV } from '~/server/env';
 import {
   GameState,

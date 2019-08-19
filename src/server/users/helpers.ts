@@ -1,4 +1,4 @@
-import Photon, { User } from '~/server/photon';
+import Photon, { User } from '~/photon';
 import { createId } from '~/server/helpers';
 import { createVault } from '~/server/vaults';
 import { GameState } from '~/server/state';

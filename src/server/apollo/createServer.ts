@@ -1,4 +1,4 @@
-import Photon from '~/server/photon';
+import Photon from '~/photon';
 import glob from 'glob';
 import express from 'express';
 import cors from 'cors';

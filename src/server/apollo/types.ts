@@ -1,4 +1,4 @@
-import Photon, { User } from '~/server/photon';
+import Photon, { User } from '~/photon';
 import { Request, Response } from 'express';
 import { GameState } from '~/server/state';
 
