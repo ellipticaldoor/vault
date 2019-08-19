@@ -1,6 +1,5 @@
 # Dev
 
-- add ? for save key access
 - run server in production mode
 - generate vaults and missions for development
 - disable hot reload on cra
@@ -28,13 +27,11 @@
 
 # UI
 
-- debounce submit
-- create <a> link component instead of global one
-- underline current screen on nav
-- better SelectInput right svg icon
 - display missions
-- better alternative for randmon classes
+- debounce submit
+- display title of the screen on chrome tab
 - client side input validation
+- add error message prop to every input
 - if missions screen is empty display a message pointing to new mission
 - complete empty screens
 - display facilities in home and resources
@@ -43,10 +40,8 @@
 - eslint accesibility and a11y
 - don't create sourcemaps on build
 - client side prediction of resources and ticks
-- display title of the screen on chrome tab
 - display vaults info on atlas
 - display modal on vault click to show info and attack
-- add error message prop to every input
 - handle auth state on screens / routes / state
 - mark user's vault on the atlas
 - settings screen
