@@ -3,7 +3,7 @@ import React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { apolloClient } from '~/client/apollo';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import useGameStateContext from '~/client/state';
+import useGameState from '~/client/state';
 import { routes } from '~/client/routes';
 import { Nav, StatePanel } from '~/client/components';
 import styled from 'styled-components';
@@ -12,7 +12,7 @@ import { GlobalStyle } from '~/client/styles';
 export const App: React.FC = () => {
   return (
     <ApolloProvider client={apolloClient}>
-      <useGameStateContext.Provider>
+      <useGameState.Provider>
         <GlobalStyle />
         <Router>
           <AppContainer>
@@ -23,7 +23,7 @@ export const App: React.FC = () => {
             ))}
           </AppContainer>
         </Router>
-      </useGameStateContext.Provider>
+      </useGameState.Provider>
     </ApolloProvider>
   );
 };

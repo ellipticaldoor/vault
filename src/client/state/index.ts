@@ -2,6 +2,7 @@ import createUseContext from 'constate';
 import { useState, useEffect } from 'react';
 import { GAMESTATE_REFRESH_RATE } from '~/server/game/constants';
 import { GameState } from '~/client/state/types';
+import { mockedInitialState } from '~/client/state/mocks';
 
 export const initialGameState: GameState = {
   ticks: 0,
@@ -26,7 +27,7 @@ export const initialGameState: GameState = {
   },
 };
 
-export const useGameState = (gameState: GameState) => {
+const useGameState = (gameState: GameState) => {
   const [ticks, setTicks] = useState(gameState.ticks);
   const [myVault] = useState(gameState.myVault);
 
@@ -45,5 +46,5 @@ export const useGameState = (gameState: GameState) => {
 };
 
 export default createUseContext(() => {
-  return useGameState(initialGameState);
+  return useGameState(mockedInitialState);
 });

@@ -9,14 +9,14 @@ import {
   InputCoordinate,
 } from '~/client/components';
 import { MissionKind } from '~/api';
-import useGameStateContext from '~/client/state';
+import useGameState from '~/client/state';
 
 const missionKindOptions = Object.keys(MissionKind);
 
 export const NewMission: React.FC = () => {
   const {
     state: { myVault },
-  } = useGameStateContext();
+  } = useGameState();
 
   const [kind, setKind] = useState<string>(MissionKind.Attack);
   const [toX, setToX] = useState(0);
