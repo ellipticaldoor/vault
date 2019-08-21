@@ -6,7 +6,7 @@ import {
   Text,
   StyledInput,
 } from '~/client/components';
-import { Size, colors } from '~/client/styles';
+import { Size } from '~/client/styles';
 
 export type InputTextProps = {
   value: string;
@@ -38,7 +38,7 @@ export const InputText: React.FC<InputTextProps> = ({
           }}
         />
       </StyledInput>
-      <Text color={colors.error} margin={{ top: 'sm' }}>
+      <Text color="error" margin={{ top: 'sm' }}>
         {errorMessage}
       </Text>
     </InputContainer>

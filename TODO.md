@@ -27,7 +27,10 @@
 
 # UI
 
+- transform ticks in seconds
 - display missions
+  - display resources
+  - display times
 - debounce submit
 - display title of the screen on chrome tab
 - client side input validation

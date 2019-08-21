@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Size, SizeType, getSize, sizes, colors } from '~/client/styles';
+import { Size, SizeType, getSize, sizes, colors, Color } from '~/client/styles';
 
 export type TextProps = {
   children?: string | string[];
@@ -8,7 +8,7 @@ export type TextProps = {
   padding?: Size;
   bold?: boolean;
   fontSize?: SizeType;
-  color?: string;
+  color?: Color;
 };
 
 export const Text: React.FC<TextProps> = (props) => {
@@ -22,7 +22,7 @@ const StyledText = styled.div<TextProps>`
   padding: ${({ padding }) => getSize(padding)};
   font-weight: ${({ bold }) => (bold ? 'bold' : 'normal')};
   font-size: ${({ fontSize }) => (fontSize ? getSize(fontSize) : sizes.md)};
-  color: ${({ color }) => (color ? color : colors.text)};
+  color: ${({ color }) => (color ? colors[color] : colors.text)};
 
   word-wrap: break-word;
 `;

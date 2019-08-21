@@ -60,4 +60,6 @@ export const colors = {
   primary: palette.meteorite,
   secondary: palette.bermudaGray,
   error: palette.brinkPink,
-};
+} as const;
+
+export type Color = keyof typeof colors;
