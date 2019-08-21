@@ -6,11 +6,14 @@ import { sizes } from '~/client/styles';
 import { MissionCard } from '~/client/screens/Missions/MissionCard';
 
 export const Missions: React.FC = () => {
-  const { state } = useGameState();
-  const { missions } = state.myVault;
+  const { myVault } = useGameState();
 
-  const myMissions = [];
-  const enemyMissions = [];
+  const myMissions = myVault.missions.filter(
+    ({ from }) => from.id === myVault.id,
+  );
+  const enemyMissions = myVault.missions.filter(
+    ({ to }) => to.id === myVault.id,
+  );
 
   return (
     <ScreenContainer>
@@ -18,11 +21,17 @@ export const Missions: React.FC = () => {
 
       <MissionsContainer>
         <MissionsRow>
-          <Text>My missions</Text>
+          <Text margin={{ bottom: 'md' }}>My missions</Text>
+          {myMissions.map((mission) => (
+            <MissionCard mission={mission} />
+          ))}
         </MissionsRow>
 
         <MissionsRow>
-          <Text>Enemy missions</Text>
+          <Text margin={{ bottom: 'md' }}>Enemy missions</Text>
+          {enemyMissions.map((mission) => (
+            <MissionCard mission={mission} />
+          ))}
         </MissionsRow>
       </MissionsContainer>
     </ScreenContainer>
@@ -34,7 +43,7 @@ const MissionsContainer = styled.div`
 `;
 
 const MissionsRow = styled.div`
-  padding: ${sizes.md} ${sizes.md} ${sizes.md} 0;
+  padding: 0 ${sizes.md} ${sizes.md} 0;
 
   display: flex;
   flex-direction: column;

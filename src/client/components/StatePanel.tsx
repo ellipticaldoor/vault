@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import { sizes } from '~/client/styles';
 
 export const StatePanel: React.FC = () => {
-  const { state } = useGameState();
+  const { myVault } = useGameState();
 
   const stateInfo = [
-    { title: 'dwellers', amount: state.myVault.resources.dwellers },
-    { title: 'iron', amount: state.myVault.resources.iron },
+    { title: 'dwellers', amount: myVault.resources.dwellers },
+    { title: 'iron', amount: myVault.resources.iron },
   ];
 
   return (

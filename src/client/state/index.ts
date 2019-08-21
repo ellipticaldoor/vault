@@ -38,10 +38,8 @@ const useGameState = (gameState: GameState) => {
   }, []);
 
   return {
-    state: {
-      ticks,
-      myVault,
-    },
+    ticks,
+    myVault,
   };
 };
 

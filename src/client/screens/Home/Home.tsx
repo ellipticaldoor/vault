@@ -3,9 +3,7 @@ import { ScreenContainer, Text, TextTitle } from '~/client/components';
 import useGameState from '~/client/state';
 
 export const Home: React.FC = () => {
-  const {
-    state: { myVault },
-  } = useGameState();
+  const { myVault } = useGameState();
 
   return (
     <ScreenContainer>
