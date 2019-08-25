@@ -1,6 +1,8 @@
 import { gameConfig } from '~/game-config';
 
 export const millisecondsToReadableTime = (milliseconds: number) => {
+  if (milliseconds < 0) return '--s';
+
   const hours = milliseconds / (1000 * 60 * 60);
   const absoluteHours = Math.floor(hours);
   const h = absoluteHours > 9 ? absoluteHours : '0' + absoluteHours;

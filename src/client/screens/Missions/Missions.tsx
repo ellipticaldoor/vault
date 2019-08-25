@@ -6,7 +6,7 @@ import { sizes } from '~/client/styles';
 import { MissionCard } from '~/client/screens/Missions/MissionCard';
 
 export const Missions: React.FC = () => {
-  const { myVault } = useGameState();
+  const { myVault, ticks } = useGameState();
 
   const myMissions = myVault.missions.filter(
     ({ from }) => from.id === myVault.id,
@@ -23,14 +23,14 @@ export const Missions: React.FC = () => {
         <MissionsRow>
           <Text margin={{ bottom: 'md' }}>My missions</Text>
           {myMissions.map((mission) => (
-            <MissionCard mission={mission} />
+            <MissionCard mission={mission} ticks={ticks} />
           ))}
         </MissionsRow>
 
         <MissionsRow>
           <Text margin={{ bottom: 'md' }}>Enemy missions</Text>
           {enemyMissions.map((mission) => (
-            <MissionCard mission={mission} />
+            <MissionCard mission={mission} ticks={ticks} />
           ))}
         </MissionsRow>
       </MissionsContainer>

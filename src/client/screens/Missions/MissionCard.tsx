@@ -3,44 +3,51 @@ import { Text } from '~/client/components';
 import styled from 'styled-components';
 import { sizes, colors, border } from '~/client/styles';
 import { Mission } from '~/client/state/types';
+import { ticksToTime } from '~/helpers';
 
 export type MissionCardProps = {
   mission: Mission;
+  ticks: number;
 };
 
-export const MissionCard: React.FC<MissionCardProps> = ({ mission }) => {
+export const MissionCard: React.FC<MissionCardProps> = ({ mission, ticks }) => {
   return (
     <StyledMissionCard>
-      <Text margin={{ bottom: 'sm' }}>{mission.kind}</Text>
-      <Coordinates>
-        <Text>from</Text>
-        <CoordinateValue>
-          x {mission.from.x.toString()} y {mission.from.y.toString()}
-        </CoordinateValue>
-        <Text>to</Text>
-        <CoordinateValue>
-          x {mission.to.x.toString()} y {mission.to.y.toString()}
-        </CoordinateValue>
-      </Coordinates>
+      <Row>
+        <Text>An {mission.kind} from</Text>
+        <Value>
+          {mission.from.x.toString()}x {mission.from.y.toString()}y
+        </Value>
+      </Row>
+      <Row>
+        <Text>Will arrive to</Text>
+        <Value>
+          {mission.to.x.toString()}x {mission.to.y.toString()}y
+        </Value>
+        <Text>in</Text>
+        <Value>{ticksToTime(mission.arrivalTick - ticks)}</Value>
+      </Row>
     </StyledMissionCard>
   );
 };
 
 const StyledMissionCard = styled.div`
-  padding: ${sizes.sm};
+  padding: ${sizes.sm} ${sizes.sm} 0 ${sizes.sm};
   margin-bottom: ${sizes.md};
   background: ${colors.base};
   border-radius: ${border.radius};
 `;
 
-const Coordinates = styled.div`
+const Row = styled.div`
   display: flex;
   align-items: center;
+
+  margin-bottom: ${sizes.sm};
 `;
 
-const CoordinateValue = styled.div`
+const Value = styled.div`
   background: ${colors.background};
   padding: ${sizes.xs};
-  margin: 0 ${sizes.sm} 0 ${sizes.xs};
+  margin: 0 ${sizes.sm};
   border-radius: ${border.radius};
 `;

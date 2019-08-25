@@ -27,10 +27,9 @@ export type Mission = {
   kind: MissionKind;
   from: Vault;
   to: Vault;
-  // TODO
-  // createdAtTick: number;
-  // arrivalTick: number;
-  // comebackTick: number;
+  createdAtTick: number;
+  arrivalTick: number;
+  comebackTick: number;
   // resources?: Resources;
 };
 

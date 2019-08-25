@@ -30,7 +30,6 @@ export const InputNumber: React.FC<InputNumberProps> = ({
   return (
     <InputContainer margin={margin} padding={padding}>
       <StyledInput>
-        <TextLabel>{label}</TextLabel>
         <Input
           {...props}
           type="number"
@@ -40,6 +39,7 @@ export const InputNumber: React.FC<InputNumberProps> = ({
           }}
           width={inputWidth}
         />
+        <TextLabel margin={{ left: 'xs' }}>{label}</TextLabel>
       </StyledInput>
     </InputContainer>
   );

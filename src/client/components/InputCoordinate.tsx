@@ -22,7 +22,7 @@ export const InputCoordinate: React.FC<CoordinateInputProps> = (props) => {
   return (
     <InputContainer margin={props.margin}>
       <StyledInput>
-        <TextLabel margin={{ right: 'md' }}>{props.label}</TextLabel>
+        <TextLabel>{props.label}</TextLabel>
         <InputNumber
           label="x"
           value={props.x}

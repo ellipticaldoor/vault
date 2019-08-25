@@ -16,6 +16,7 @@
 
 # Backend
 
+- use a websocket to fetch data?
 - change joi validation for validator.js
 - implement schema resolvers
 - Don't allow to see private info from another players
