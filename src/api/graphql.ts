@@ -103,7 +103,6 @@ export type Query = {
 
 export type Resources = {
   __typename?: 'Resources';
-  id: Scalars['ID'];
   dwellers: Scalars['Int'];
   iron: Scalars['Int'];
 };
@@ -208,8 +207,8 @@ export type ResolversTypes = {
   GameState: ResolverTypeWrapper<GameState>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
   Resources: ResolverTypeWrapper<Resources>;
-  ID: ResolverTypeWrapper<Scalars['ID']>;
   Vault: ResolverTypeWrapper<Vault>;
+  ID: ResolverTypeWrapper<Scalars['ID']>;
   Mission: ResolverTypeWrapper<Mission>;
   MissionKind: MissionKind;
   Facilities: ResolverTypeWrapper<Facilities>;
@@ -232,8 +231,8 @@ export type ResolversParentTypes = {
   GameState: GameState;
   Int: Scalars['Int'];
   Resources: Resources;
-  ID: Scalars['ID'];
   Vault: Vault;
+  ID: Scalars['ID'];
   Mission: Mission;
   MissionKind: MissionKind;
   Facilities: Facilities;
@@ -352,7 +351,6 @@ export type ResourcesResolvers<
   ContextType = ApolloContext,
   ParentType extends ResolversParentTypes['Resources'] = ResolversParentTypes['Resources']
 > = {
-  id: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   dwellers: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   iron: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
 };

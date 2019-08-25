@@ -1,11 +1,11 @@
 import React from 'react';
-import useGameState from '~/client/state';
+import { useGameStateContext } from '~/client/state';
 import { Text } from '~/client/components';
 import styled from 'styled-components';
 import { sizes } from '~/client/styles';
 
 export const StatePanel: React.FC = () => {
-  const { myVault } = useGameState();
+  const { myVault } = useGameStateContext();
 
   const stateInfo = [
     { title: 'dwellers', amount: myVault.resources.dwellers },
@@ -17,7 +17,7 @@ export const StatePanel: React.FC = () => {
       {stateInfo.map(({ title, amount }, index) => (
         <Info key={index}>
           <Text bold>{title}</Text>
-          <Text>{amount.toString()}</Text>
+          <Text>{amount ? amount.toString() : '0'}</Text>
         </Info>
       ))}
     </StatePanelContainer>

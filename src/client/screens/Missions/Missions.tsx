@@ -1,12 +1,12 @@
 import React from 'react';
 import { ScreenContainer, TextTitle, Text } from '~/client/components';
-import useGameState from '~/client/state';
+import { useGameStateContext } from '~/client/state';
 import styled from 'styled-components';
 import { sizes } from '~/client/styles';
 import { MissionCard } from '~/client/screens/Missions/MissionCard';
 
 export const Missions: React.FC = () => {
-  const { myVault, ticks } = useGameState();
+  const { myVault, ticks } = useGameStateContext();
 
   const myMissions = myVault.missions.filter(
     ({ from }) => from.id === myVault.id,
