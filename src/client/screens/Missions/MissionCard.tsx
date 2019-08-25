@@ -11,6 +11,10 @@ export type MissionCardProps = {
 };
 
 export const MissionCard: React.FC<MissionCardProps> = ({ mission, ticks }) => {
+  if (mission.comebackTick < ticks) {
+    return null;
+  }
+
   const resources = Object.entries(mission.resources);
   const renderResources =
     resources.length > 0 ? (
@@ -26,6 +30,25 @@ export const MissionCard: React.FC<MissionCardProps> = ({ mission, ticks }) => {
       </Row>
     ) : null;
 
+  const isMissionCommingBack = ticks > mission.arrivalTick;
+
+  const renderArrivalInfo = isMissionCommingBack ? (
+    <Row>
+      <Text>Will arrive back home in</Text>
+      <Value>{ticksToTime(mission.comebackTick - ticks)}</Value>
+      {/* TODO: display link to see combat report */}
+    </Row>
+  ) : (
+    <Row>
+      <Text>Will arrive to</Text>
+      <Value>
+        {mission.to.x.toString()}x {mission.to.y.toString()}y
+      </Value>
+      <Text>in</Text>
+      <Value>{ticksToTime(mission.arrivalTick - ticks)}</Value>
+    </Row>
+  );
+
   return (
     <StyledMissionCard>
       <Row>
@@ -34,14 +57,7 @@ export const MissionCard: React.FC<MissionCardProps> = ({ mission, ticks }) => {
           {mission.from.x.toString()}x {mission.from.y.toString()}y
         </Value>
       </Row>
-      <Row>
-        <Text>Will arrive to</Text>
-        <Value>
-          {mission.to.x.toString()}x {mission.to.y.toString()}y
-        </Value>
-        <Text>in</Text>
-        <Value>{ticksToTime(mission.arrivalTick - ticks)}</Value>
-      </Row>
+      {renderArrivalInfo}
       {renderResources}
     </StyledMissionCard>
   );

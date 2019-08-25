@@ -28,18 +28,17 @@
 
 # UI
 
+- make atlas the home
+- facilities screen
+- display resources screen
 - display total world population on atlas
 - move game config constants to ~/game-config
-- display missions
-  - display resources
-  - display times
 - debounce submit
 - display title of the screen on chrome tab
 - client side input validation
 - add error message prop to every input
 - if missions screen is empty display a message pointing to new mission
 - complete empty screens
-- display facilities in home and resources
 - responsive canvas
 - responsive UI
 - eslint accesibility and a11y
@@ -49,6 +48,8 @@
 - show a fix status bar on the atlas to display info of clicked / hovered vaults
 - handle auth state on screens / routes / state
 - mark user's vault on the atlas
+- fetch missions when a mission finishes arrival or comeback to update the state
+- format number adding dots like, 100.000.000
 - settings screen
   - dark theme
   - update password

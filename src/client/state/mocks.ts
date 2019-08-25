@@ -26,8 +26,8 @@ export const mockedInitialState: GameState = {
         to: { id: 'enemy-vault-2', x: 20, y: 20 },
         kind: MissionKind.Attack,
         createdAtTick: 0,
-        arrivalTick: 5,
-        comebackTick: 100,
+        arrivalTick: 3,
+        comebackTick: 6,
         resources: {
           dwellers: 40,
           iron: 1000,
