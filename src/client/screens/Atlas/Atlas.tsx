@@ -7,7 +7,7 @@ import {
 import { drawAtlas, getAtlasSize } from '~/client/screens/Atlas/drawAtlas';
 import { CanvasContext, scaleCanvas } from '~/client/helpers';
 import { Vault } from '~/api/graphql';
-import { createId } from '~/server/helpers';
+import { createId } from '~/server/helpers'; // TODO: remove
 import { VaultButton } from './VaultButton';
 
 const initialVaults = [

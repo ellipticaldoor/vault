@@ -27,7 +27,7 @@
 
 # UI
 
-- transform ticks in seconds
+- move game config constants to ~/game-config
 - display missions
   - display resources
   - display times

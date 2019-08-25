@@ -1,3 +1,5 @@
+import { gameConfig } from '~/game-config';
+
 export const millisecondsToReadableTime = (milliseconds: number) => {
   const hours = milliseconds / (1000 * 60 * 60);
   const absoluteHours = Math.floor(hours);
@@ -17,5 +19,5 @@ export const millisecondsToReadableTime = (milliseconds: number) => {
 };
 
 export const ticksToTime = (ticks: number) => {
-  return ticks;
+  return millisecondsToReadableTime(ticks * gameConfig.refreshRate);
 };

@@ -15,5 +15,5 @@ test('millisecondsToReadableTime', () => {
 });
 
 test('ticksToTime', () => {
-  expect(ticksToTime(1)).toEqual(10);
+  expect(ticksToTime(1)).toEqual('01s');
 });

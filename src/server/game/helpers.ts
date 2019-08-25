@@ -1,10 +1,10 @@
 import { createGameState, GameState } from '~/server/state';
-import { GAMESTATE_REFRESH_RATE } from '~/server/game/constants';
+import { gameConfig } from '~/game-config';
 
 const startGameLoop = (gameState: GameState) => {
   setInterval(() => {
     gameState.increaseTicks();
-  }, GAMESTATE_REFRESH_RATE);
+  }, gameConfig.refreshRate);
 };
 
 export const createGame = () => {

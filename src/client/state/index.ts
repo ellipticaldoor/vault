@@ -1,6 +1,6 @@
 import createUseContext from 'constate';
 import { useState, useEffect } from 'react';
-import { GAMESTATE_REFRESH_RATE } from '~/server/game/constants';
+import { gameConfig } from '~/game-config';
 import { GameState } from '~/client/state/types';
 import { mockedInitialState } from '~/client/state/mocks';
 
@@ -34,7 +34,7 @@ const useGameState = (gameState: GameState) => {
   useEffect(() => {
     setInterval(() => {
       setTicks((prev) => prev + 1);
-    }, GAMESTATE_REFRESH_RATE);
+    }, gameConfig.refreshRate);
   }, []);
 
   return {
