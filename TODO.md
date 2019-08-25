@@ -28,6 +28,7 @@
 
 # UI
 
+- display total world population on atlas
 - move game config constants to ~/game-config
 - display missions
   - display resources
@@ -45,7 +46,7 @@
 - don't create sourcemaps on build
 - client side prediction of resources and ticks
 - display vaults info on atlas
-- display modal on vault click to show info and attack
+- show a fix status bar on the atlas to display info of clicked / hovered vaults
 - handle auth state on screens / routes / state
 - mark user's vault on the atlas
 - settings screen

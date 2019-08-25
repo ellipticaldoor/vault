@@ -11,9 +11,8 @@ export type User = {
 };
 
 export type Resources = {
-  id: string;
-  dwellers: number;
-  iron: number;
+  dwellers?: number;
+  iron?: number;
 };
 
 export type Vault = {
@@ -30,7 +29,7 @@ export type Mission = {
   createdAtTick: number;
   arrivalTick: number;
   comebackTick: number;
-  // resources?: Resources;
+  resources: Resources;
 };
 
 export type MyVault = {

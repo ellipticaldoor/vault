@@ -11,6 +11,21 @@ export type MissionCardProps = {
 };
 
 export const MissionCard: React.FC<MissionCardProps> = ({ mission, ticks }) => {
+  const resources = Object.entries(mission.resources);
+  const renderResources =
+    resources.length > 0 ? (
+      <Row>
+        <Text>With</Text>
+        {resources.map(([name, value], index) => (
+          <Resource key={index}>
+            <Value>{value}</Value>
+            <Text>{name}</Text>
+            {index !== resources.length - 1 ? <Text>,</Text> : null}
+          </Resource>
+        ))}
+      </Row>
+    ) : null;
+
   return (
     <StyledMissionCard>
       <Row>
@@ -27,6 +42,7 @@ export const MissionCard: React.FC<MissionCardProps> = ({ mission, ticks }) => {
         <Text>in</Text>
         <Value>{ticksToTime(mission.arrivalTick - ticks)}</Value>
       </Row>
+      {renderResources}
     </StyledMissionCard>
   );
 };
@@ -50,4 +66,9 @@ const Value = styled.div`
   padding: ${sizes.xs};
   margin: 0 ${sizes.sm};
   border-radius: ${border.radius};
+`;
+
+const Resource = styled.div`
+  display: flex;
+  align-items: center;
 `;

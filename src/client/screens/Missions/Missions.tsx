@@ -22,15 +22,15 @@ export const Missions: React.FC = () => {
       <MissionsContainer>
         <MissionsRow>
           <Text margin={{ bottom: 'md' }}>My missions</Text>
-          {myMissions.map((mission) => (
-            <MissionCard mission={mission} ticks={ticks} />
+          {myMissions.map((mission, index) => (
+            <MissionCard key={index} mission={mission} ticks={ticks} />
           ))}
         </MissionsRow>
 
         <MissionsRow>
           <Text margin={{ bottom: 'md' }}>Enemy missions</Text>
-          {enemyMissions.map((mission) => (
-            <MissionCard mission={mission} ticks={ticks} />
+          {enemyMissions.map((mission, index) => (
+            <MissionCard key={index} mission={mission} ticks={ticks} />
           ))}
         </MissionsRow>
       </MissionsContainer>

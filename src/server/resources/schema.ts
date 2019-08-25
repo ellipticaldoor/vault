@@ -2,7 +2,6 @@ import gql from 'graphql-tag';
 
 export default gql`
   type Resources {
-    id: ID!
     dwellers: Int!
     iron: Int!
   }

@@ -16,6 +16,9 @@ export const mockedInitialState: GameState = {
         createdAtTick: 0,
         arrivalTick: 60,
         comebackTick: 120,
+        resources: {
+          dwellers: 100,
+        },
       },
       {
         id: 'mission-2',
@@ -23,8 +26,12 @@ export const mockedInitialState: GameState = {
         to: { id: 'enemy-vault-2', x: 20, y: 20 },
         kind: MissionKind.Attack,
         createdAtTick: 0,
-        arrivalTick: 120,
-        comebackTick: 240,
+        arrivalTick: 5,
+        comebackTick: 100,
+        resources: {
+          dwellers: 40,
+          iron: 1000,
+        },
       },
       {
         id: 'mission-3',
@@ -34,6 +41,7 @@ export const mockedInitialState: GameState = {
         createdAtTick: 0,
         arrivalTick: 60,
         comebackTick: 120,
+        resources: {},
       },
     ],
     facilities: {
@@ -41,7 +49,6 @@ export const mockedInitialState: GameState = {
       ironMine: 0,
     },
     resources: {
-      id: '',
       dwellers: 0,
       iron: 0,
     },
