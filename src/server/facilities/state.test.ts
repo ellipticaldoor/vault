@@ -1,6 +1,5 @@
 import { createGameState } from '~/server/state';
 import { createVault } from '~/server/vaults';
-import { FacilityKind } from '~/server/facilities';
 
 describe('increaseFacilityLevel', () => {
   test('increases the level of a facility', () => {
@@ -14,7 +13,7 @@ describe('increaseFacilityLevel', () => {
 
     expect(facility.ironMine).toEqual(0);
 
-    gameState.increaseFacilityLevel(vault.facilityId, FacilityKind.IronMine);
+    gameState.increaseFacilityLevel(vault.facilityId, 'ironMine');
 
     const updatedFacility = gameState.findFacility({ id: vault.facilityId });
 

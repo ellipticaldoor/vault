@@ -21,6 +21,7 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 0,
     '@typescript-eslint/no-use-before-define': 0,
     '@typescript-eslint/no-unused-vars': 0,
+    'no-const-assign': 0,
     'no-console': 1,
     'no-shadow': 'error',
     'no-duplicate-imports': 'error',

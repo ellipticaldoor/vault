@@ -63,3 +63,10 @@ export const colors = {
 } as const;
 
 export type Color = keyof typeof colors;
+
+export const resourceColors = {
+  iron: palette.chestnutRose,
+  dwellers: palette.spray,
+} as const;
+
+export type ResourceColor = keyof typeof resourceColors;

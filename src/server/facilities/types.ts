@@ -1,8 +1,6 @@
 import { ID } from '~/server/game';
 
-export enum FacilityKind {
-  IronMine = 'ironMine',
-}
+export type FacilityKind = 'ironMine';
 
 export type Facility = {
   id: ID;

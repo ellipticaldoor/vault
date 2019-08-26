@@ -1,4 +1,4 @@
-import { MissionKind } from '~/api/graphql';
+import { MissionKind, Resources } from '~/api/graphql';
 
 export type Facilities = {
   id: string;
@@ -8,11 +8,6 @@ export type Facilities = {
 export type User = {
   id: string;
   username: string;
-};
-
-export type Resources = {
-  dwellers?: number;
-  iron?: number;
 };
 
 export type Vault = {
@@ -29,7 +24,7 @@ export type Mission = {
   createdAtTick: number;
   arrivalTick: number;
   comebackTick: number;
-  resources: Resources;
+  resources: Partial<Resources>;
 };
 
 export type MyVault = {

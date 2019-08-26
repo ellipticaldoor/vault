@@ -1,6 +1,6 @@
 import { createGameState } from '~/server/state';
 import { createVault } from '~/server/vaults';
-import { FacilityKind, upgradeFacilityLevel } from '~/server/facilities';
+import { upgradeFacilityLevel } from '~/server/facilities';
 
 describe('upgradeFacilityLevel', () => {
   test('increases the level of a facility', () => {
@@ -14,7 +14,7 @@ describe('upgradeFacilityLevel', () => {
 
     upgradeFacilityLevel(gameState, {
       vaultId: vault.id,
-      facilityKind: FacilityKind.IronMine,
+      facilityKind: 'ironMine',
     });
 
     const resourcesAfterUpgrade = gameState.findResource({
@@ -47,7 +47,7 @@ describe('upgradeFacilityLevel', () => {
     try {
       upgradeFacilityLevel(gameState, {
         vaultId: vault.id,
-        facilityKind: FacilityKind.IronMine,
+        facilityKind: 'ironMine',
       });
 
       fail(

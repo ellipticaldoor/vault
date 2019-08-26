@@ -6,7 +6,6 @@ import {
 import cases from 'jest-in-case';
 import { createGameState } from '~/server/state';
 import { VAULT_DEFAULT_RESOURCE, createVault } from '~/server/vaults';
-import { FacilityKind } from '~/server/facilities';
 
 cases(
   'nextTickResources',
@@ -20,7 +19,7 @@ cases(
     });
 
     if (prepare.hasIronMine) {
-      gameState.increaseFacilityLevel(vault.facilityId, FacilityKind.IronMine);
+      gameState.increaseFacilityLevel(vault.facilityId, 'ironMine');
     }
 
     nextTickResources(gameState);
@@ -81,7 +80,7 @@ cases(
     ];
 
     vaults.forEach((vault) => {
-      gameState.increaseFacilityLevel(vault.facilityId, FacilityKind.IronMine);
+      gameState.increaseFacilityLevel(vault.facilityId, 'ironMine');
     });
 
     nextTick(gameState);

@@ -28,6 +28,8 @@
 
 # UI
 
+- show descriptions for resources and facilities
+- display a basic graph in the resources screen showing production over time
 - make atlas the home
 - facilities screen
 - display resources screen

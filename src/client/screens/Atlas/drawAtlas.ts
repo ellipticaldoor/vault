@@ -77,7 +77,7 @@ export const drawAtlas = (
   { paddedWidth, paddedHeight }: AtlasSize,
 ) => {
   ctx.translate(ATLAS_PADDING, ATLAS_PADDING);
-  ctx.strokeStyle = colors.primary;
+  ctx.strokeStyle = colors.base;
   ctx.beginPath();
 
   atlasBorder(ctx, 0, 0, paddedWidth, paddedHeight);
