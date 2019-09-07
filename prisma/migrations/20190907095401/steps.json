@@ -1,0 +1,34 @@
+{
+  "version": "0.2.36",
+  "steps": [
+    {
+      "stepType": "CreateModel",
+      "name": "GameState",
+      "embedded": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "GameState",
+      "name": "id",
+      "type": {
+        "Base": "Int"
+      },
+      "arity": "required",
+      "isUnique": false,
+      "id": {
+        "strategy": "Auto",
+        "sequence": null
+      }
+    },
+    {
+      "stepType": "CreateField",
+      "model": "GameState",
+      "name": "ticks",
+      "type": {
+        "Base": "Int"
+      },
+      "arity": "required",
+      "isUnique": false
+    }
+  ]
+}

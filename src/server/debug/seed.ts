@@ -1,9 +1,5 @@
 import Photon, { UserDelegate } from '~/photon';
-import {
-  GameState,
-  Table,
-  // DEFAULT_GAME_STATE_ID
-} from '~/server/state';
+import { GameState, Table, DEFAULT_GAME_STATE_ID } from '~/server/state';
 import { createUser } from '~/server/users';
 import { createVault } from '~/server/vaults';
 import { TEST_USER, validateTestingMode } from '~/server/debug';
@@ -24,6 +20,7 @@ export const resetDb = async (photon: Photon) => {
   validateTestingMode();
 
   await Promise.all([
+    deleteTable(photon, 'gameStates'),
     deleteTable(photon, 'users'),
     deleteTable(photon, 'vaults'),
   ]);
@@ -32,12 +29,13 @@ export const resetDb = async (photon: Photon) => {
 export const seedGameState = async (photon: Photon, gameState: GameState) => {
   validateTestingMode();
 
-  // await Entity.GameState.create({
-  //   id: DEFAULT_GAME_STATE_ID,
-  //   ticks: 0,
-  // }).save();
-
   await Promise.all([
+    photon.gameStates.create({
+      data: {
+        id: DEFAULT_GAME_STATE_ID,
+        ticks: 0,
+      },
+    }),
     createUser(photon, gameState, {
       username: TEST_USER.username,
       password: TEST_USER.password,
