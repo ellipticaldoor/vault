@@ -16,19 +16,18 @@ export const MissionCard: React.FC<MissionCardProps> = ({ mission, ticks }) => {
   }
 
   const resources = Object.entries(mission.resources);
-  const renderResources =
-    resources.length > 0 ? (
-      <Row>
-        <Text>With</Text>
-        {resources.map(([name, value], index) => (
-          <Resource key={index}>
-            <Value>{value}</Value>
-            <Text>{name}</Text>
-            {index !== resources.length - 1 ? <Text>,</Text> : null}
-          </Resource>
-        ))}
-      </Row>
-    ) : null;
+  const renderResources = resources.length > 0 && (
+    <Row>
+      <Text>With</Text>
+      {resources.map(([name, value], index) => (
+        <Resource key={index}>
+          <Value>{value}</Value>
+          <Text>{name}</Text>
+          {index !== resources.length - 1 && <Text>,</Text>}
+        </Resource>
+      ))}
+    </Row>
+  );
 
   const isMissionCommingBack = ticks > mission.arrivalTick;
 

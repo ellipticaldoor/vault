@@ -16,6 +16,7 @@
 
 # Backend
 
+- use Coding Adventure - Boids-bqtqltqcQhw golden ratio to generate new vaults positions?
 - use a websocket to fetch data?
 - change joi validation for validator.js
 - implement schema resolvers

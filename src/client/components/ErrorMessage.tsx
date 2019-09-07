@@ -23,11 +23,11 @@ export const ErrorMessage: React.FC<MessageProps> = ({ label, message }) => {
 
   return (
     <StyledErrorMessage>
-      {label ? (
+      {label && (
         <Text bold margin={{ bottom: 'sm' }} color="error">
           {label}
         </Text>
-      ) : null}
+      )}
 
       <Text>{finalMessage}</Text>
     </StyledErrorMessage>
