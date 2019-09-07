@@ -74,8 +74,9 @@ export const createVault = (gameState: GameState, args?: CreateVaultArgs) => {
     validateCreateVaultArgs(gameState, args);
   }
 
-  let { coordinate, userId } = args ? args : ({} as CreateVaultArgs);
-  coordinate = coordinate ? coordinate : createUniqueCoordinate(gameState);
+  const { coordinate = createUniqueCoordinate(gameState), userId } = args
+    ? args
+    : ({} as CreateVaultArgs);
 
   const resource = gameState.addResource({
     id: createId(),

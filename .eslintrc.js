@@ -11,6 +11,7 @@ module.exports = {
     'prettier/@typescript-eslint',
   ],
   rules: {
+    '@typescript-eslint/no-angle-bracket-type-assertion': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/prefer-interface': 0,
     '@typescript-eslint/no-unused-vars': 0,
